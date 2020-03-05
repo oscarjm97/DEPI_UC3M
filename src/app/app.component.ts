@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'DEPIAPP - UC3M';
+  develop = 'Prueba';
 }
