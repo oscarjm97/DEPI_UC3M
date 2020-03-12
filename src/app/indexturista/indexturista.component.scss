@@ -1,0 +1,79 @@
+/** Utilidades **/
+.centrar-texto {
+    text-align: center;
+}
+
+body {
+    margin-bottom: 21.1rem;
+}
+@media (max-width: 520px) {
+    body {
+        margin-bottom: 13.2rem;
+    }
+}
+
+/** Header **/
+.header {
+    margin-top: -1rem;
+}
+.button {
+    margin-left: 1rem;
+    padding: .5rem;
+    border: 2px solid rgb(59, 59, 61);
+    border-radius: .6rem;
+}
+.button:hover {
+    cursor: pointer;
+}
+/** Contenido Principal **/
+.search {
+    display: block;
+    margin-top: 3rem;
+    justify-content: center;
+    text-align: center;
+}
+@media (max-width: 535px) {
+    .search {
+        display: grid;
+    }
+}
+
+label {
+    margin: 0 -.5rem 0 .3rem;
+    text-align: center;
+    align-items: center;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+@media (max-width: 535px) {
+    label {
+        font-size: 1.8rem;
+    }
+}
+input:not([type="submit"]) {
+    margin: 0 .3rem 0 .3rem;
+    text-align: center;
+    align-items: center;
+    padding: 1rem 2rem 1rem 2rem;
+    border: 3px solid rgb(59, 59, 61);
+    border-radius: 1rem;
+}
+input[type="submit"] {
+    margin: 0 .3rem 0 .3rem;
+    text-align: center;
+    align-items: center;
+    padding: .6rem 1.2rem .6rem 1.2rem;
+    font-size: 1rem;
+    border: 3px solid rgb(59, 59, 61);
+    border-radius: 1rem;
+}
+input[type="submit"]:hover {
+    cursor: pointer;
+}
+@media (max-width: 535px) {
+    input[type="submit"] {
+        margin: 0.8rem 4rem 0 4rem;
+        font-size: 1.2rem;
+    }
+}
