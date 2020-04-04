@@ -1,0 +1,37 @@
+//IMPORTS
+@import "../app.component.scss";
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* personalizados */
+.mat-drawer-container {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.mat-toolbar.mat-primary,
+.mat-drawer {
+  background-color: $navbar-color;
+}
+
+@media (min-width: 768px) {
+  .sidenav {
+    display: none;
+  }
+}

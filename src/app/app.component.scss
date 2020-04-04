@@ -1,11 +1,20 @@
-/** Utilidades **/
+// COLORS
+$navbar-color: #453534;
+$bg-color: #ffffff;
+$bg-btn: #C49860;
+
+//FONTS
+$font-color: #000000;
+$font-size: 14px;
+
+// UTILIDADES
 .centrar-texto {
-    text-align: center;
+  text-align: center;
 }
 
-/** Body **/
+// BODY
 body {
-    display: grid;
-    margin: -8px -8px 0 -8px;
-    background-color: rgb(211, 240, 240);
+  display: grid;
+  margin: -8px -8px 0 -8px;
+  background-color: $bg-color;
 }
