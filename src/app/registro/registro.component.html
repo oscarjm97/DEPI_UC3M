@@ -1,4 +1,38 @@
-<body>
+<div>
+    <mat-card>
+        <mat-card-title>Regístrate</mat-card-title>
+        <mat-card-content>
+            <form>
+                <p>
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Usuario</mat-label>
+                        <input matInput required placeholder="Ingrese su usuario" value="">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Ingrese su contraseña</mat-label>
+                        <input matInput required [type]="hide ? 'password' : 'text'">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Ingrese su email</mat-label>
+                        <input matInput placeholder="pat@example.com" required>
+                    </mat-form-field>
+                </p>
+                
+                <button mat-raised-button color="primary">Enviar</button>
+                <button mat-raised-button color="accent">Atrás</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
+<!-- <body>
     <header>
         <h1 class="header centrar-texto">Registro</h1>
     </header>
@@ -31,4 +65,4 @@
             <button class="btn-volver"> < Volver</button>
         </div>
     </div>
-</body>
+</body> -->

@@ -1,75 +1,77 @@
-/** Utilidades **/
-.centrar-texto {
-  text-align: center;
-}
+@import "../login//login.component.scss";
 
-body {
-  margin-bottom: 39px;
-}
+// /** Utilidades **/
+// .centrar-texto {
+//   text-align: center;
+// }
 
-/** Header **/
-.header {
-  margin: -1rem 0 3rem 0;
-}
+// body {
+//   margin-bottom: 39px;
+// }
 
-/** Contenido Principal **/
-.formulario .form-text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: .5rem 0 .5rem 0;
-}
+// /** Header **/
+// .header {
+//   margin: -1rem 0 3rem 0;
+// }
 
-.form-text label {
-  flex: 0 0 8rem;
-  font-size: 1.5rem;
-}
+// /** Contenido Principal **/
+// .formulario .form-text {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   padding: .5rem 0 .5rem 0;
+// }
 
-.form-text input {
-  text-align: center;
-  padding: 1rem;
-  align-items: center;
-  border: 3px solid rgb(59, 59, 61);
-  border-radius: 1rem;
-}
+// .form-text label {
+//   flex: 0 0 8rem;
+//   font-size: 1.5rem;
+// }
 
-.form-text .user-label {
-  margin: 0;
-  flex: 0 0 4rem;
-  font-size: 1.3rem;
-}
+// .form-text input {
+//   text-align: center;
+//   padding: 1rem;
+//   align-items: center;
+//   border: 3px solid rgb(59, 59, 61);
+//   border-radius: 1rem;
+// }
 
-/** Botones **/
-.btn-registrar {
-  padding: 1rem 3rem;
-  margin: 2rem 0;
-  background-color: rgb(59, 59, 61);
-  text-decoration: none;
-  color: white;
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 1rem;
-  border: 3px solid black;
-  border-radius: 1rem;
-}
+// .form-text .user-label {
+//   margin: 0;
+//   flex: 0 0 4rem;
+//   font-size: 1.3rem;
+// }
 
-.btn-registrar:hover {
-  cursor: pointer;
-}
+// /** Botones **/
+// .btn-registrar {
+//   padding: 1rem 3rem;
+//   margin: 2rem 0;
+//   background-color: rgb(59, 59, 61);
+//   text-decoration: none;
+//   color: white;
+//   font-weight: 600;
+//   text-transform: uppercase;
+//   font-size: 1rem;
+//   border: 3px solid black;
+//   border-radius: 1rem;
+// }
 
-.volver {
-  display: flex;
-  justify-content: center;
-}
+// .btn-registrar:hover {
+//   cursor: pointer;
+// }
 
-.btn-volver {
-  display: flex;
-  font-weight: 500;
-  font-size: 1.2rem;
-  background-color: rgb(211, 240, 240);
-  border: none;
-}
+// .volver {
+//   display: flex;
+//   justify-content: center;
+// }
 
-.btn-volver:hover {
-  cursor: pointer;
-}
+// .btn-volver {
+//   display: flex;
+//   font-weight: 500;
+//   font-size: 1.2rem;
+//   background-color: rgb(211, 240, 240);
+//   border: none;
+// }
+
+// .btn-volver:hover {
+//   cursor: pointer;
+// }
