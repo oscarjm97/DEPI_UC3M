@@ -20,6 +20,8 @@ import { MatCardModule } from "@angular/material/card";
 import { MatRadioModule } from "@angular/material/radio";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { FilterComponent } from './filter/filter.component';
+import { ExperienceComponent } from './experience/experience.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { FilterComponent } from './filter/filter.component';
     IndexturistaComponent,
     MainNavComponent,
     FilterComponent,
+    ExperienceComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
