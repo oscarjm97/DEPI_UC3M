@@ -18,6 +18,8 @@ import { MatInputModule } from "@angular/material/input";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatCardModule } from "@angular/material/card";
 import { MatRadioModule } from "@angular/material/radio";
+import { MatExpansionModule } from "@angular/material/expansion";
+import { FilterComponent } from './filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { MatRadioModule } from "@angular/material/radio";
     RegistroComponent,
     IndexturistaComponent,
     MainNavComponent,
+    FilterComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { MatRadioModule } from "@angular/material/radio";
     MatGridListModule,
     MatCardModule,
     MatRadioModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

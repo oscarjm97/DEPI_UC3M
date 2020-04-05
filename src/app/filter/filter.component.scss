@@ -1,0 +1,12 @@
+mat-accordion {
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.mat-expansion-panel-header {
+  float: right;
+}
+
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+  box-shadow: none;
+}

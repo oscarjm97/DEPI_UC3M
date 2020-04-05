@@ -1,0 +1,30 @@
+<mat-accordion class="example-headers-align">
+    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+        <mat-expansion-panel-header>
+            <mat-icon>tune</mat-icon>
+        </mat-expansion-panel-header>
+        <form>
+            <mat-form-field>
+                <mat-label>Precio Min.</mat-label>
+                <input matInput type="number" min="10">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Precio Máx.</mat-label>
+                <input matInput type="number" min="100">
+            </mat-form-field>
+            <p>Tipo de experiencia:</p>
+            <mat-icon aria-label="">eco</mat-icon>
+            <mat-icon aria-label="">local_bar</mat-icon>
+            <mat-icon aria-label="">restaurant</mat-icon>
+            <mat-icon aria-label="">pool</mat-icon>
+            <mat-icon aria-label="">sports_basketball</mat-icon>
+            <mat-icon aria-label="">palette</mat-icon>
+            <mat-icon aria-label="">music_note</mat-icon>
+            <p>Ordenar por</p>
+        </form>
+        <mat-action-row>
+            <button mat-button color="primary" (click)="nextStep()">Aceptar</button>
+        </mat-action-row>
+    </mat-expansion-panel>
+
+</mat-accordion>
