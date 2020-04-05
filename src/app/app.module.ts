@@ -17,6 +17,7 @@ import { MatListModule } from "@angular/material/list";
 import { MatInputModule } from "@angular/material/input";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatCardModule } from "@angular/material/card";
+import { MatRadioModule } from "@angular/material/radio";
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { MatCardModule } from "@angular/material/card";
     MatInputModule,
     MatGridListModule,
     MatCardModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
