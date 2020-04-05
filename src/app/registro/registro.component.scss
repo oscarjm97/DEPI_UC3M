@@ -1,69 +1,75 @@
 /** Utilidades **/
 .centrar-texto {
-    text-align: center;
+  text-align: center;
 }
 
 body {
-    margin-bottom: 39px;
+  margin-bottom: 39px;
 }
 
 /** Header **/
 .header {
-    margin: -1rem 0 3rem 0;
+  margin: -1rem 0 3rem 0;
 }
 
 /** Contenido Principal **/
 .formulario .form-text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: .5rem 0 .5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem 0 .5rem 0;
 }
+
 .form-text label {
-    flex: 0 0 8rem;
-    font-size: 1.5rem;
+  flex: 0 0 8rem;
+  font-size: 1.5rem;
 }
+
 .form-text input {
-    text-align: center;
-    padding: 1rem;
-    align-items: center;
-    border: 3px solid rgb(59, 59, 61);
-    border-radius: 1rem;
+  text-align: center;
+  padding: 1rem;
+  align-items: center;
+  border: 3px solid rgb(59, 59, 61);
+  border-radius: 1rem;
 }
+
 .form-text .user-label {
-    margin: 0;
-    flex: 0 0 4rem;
-    font-size: 1.3rem;
+  margin: 0;
+  flex: 0 0 4rem;
+  font-size: 1.3rem;
 }
 
 /** Botones **/
 .btn-registrar {
-    padding: 1rem 3rem;
-    margin: 2rem 0;
-    background-color: rgb(59, 59, 61);
-    text-decoration: none;
-    color: white;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 1rem;
-    border: 3px solid black;
-    border-radius: 1rem;
+  padding: 1rem 3rem;
+  margin: 2rem 0;
+  background-color: rgb(59, 59, 61);
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1rem;
+  border: 3px solid black;
+  border-radius: 1rem;
 }
+
 .btn-registrar:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .volver {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
+
 .btn-volver {
-    display: flex;
-    font-weight: 500;
-    font-size: 1.2rem;
-    background-color: rgb(211, 240, 240);
-    border: none;
+  display: flex;
+  font-weight: 500;
+  font-size: 1.2rem;
+  background-color: rgb(211, 240, 240);
+  border: none;
 }
+
 .btn-volver:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
