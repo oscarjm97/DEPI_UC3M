@@ -6,14 +6,14 @@
                 <p>
                     <mat-form-field appearance="outline" class="example-full-width">
                         <mat-label>Usuario</mat-label>
-                        <input matInput required placeholder="Ingrese su usuario" value="Oscarjj">
+                        <input matInput required placeholder="Ingrese su usuario">
                     </mat-form-field>
                 </p>
                 <p>
                     <mat-form-field appearance="outline">
-                        <mat-label>Ingrese su contraseña</mat-label>
-                        <input matInput required [type]="hide ? 'password' : 'text'">
-                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        <mat-label>Contraseña</mat-label>
+                        <input matInput required [type]="hide ? 'password' : 'text'" placeholder="Ingrese su contraseña">
+                        <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                             [attr.aria-pressed]="hide">
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
@@ -21,7 +21,7 @@
                 </p>
                 <button mat-raised-button color="primary">Enviar</button>
                 <p>¿Aún no estás registrado?</p>
-                <button mat-raised-button color="accent">Regístrate</button>
+                <button mat-raised-button color="accent" type="button" routerLink="/registro">Regístrate</button>
             </form>
         </mat-card-content>
     </mat-card>
