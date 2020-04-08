@@ -30,6 +30,11 @@
   background-color: $navbar-color;
 }
 
+.mat-list-base .mat-list-item,
+.mat-toolbar {
+  color: white;
+}
+
 @media (min-width: 768px) {
   .sidenav {
     display: none;

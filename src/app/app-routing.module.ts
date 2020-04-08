@@ -3,12 +3,16 @@ import { Routes, RouterModule } from "@angular/router";
 import { LoginComponent } from "./login/login.component";
 import { RegistroComponent } from "./registro/registro.component";
 import { IndexturistaComponent } from "./indexturista/indexturista.component";
+import { ExperienceComponent } from "./experience/experience.component";
+import { ProfileComponent } from "./profile/profile.component";
 
 const routes: Routes = [
+  { path: "index", component: IndexturistaComponent },
   { path: "login", component: LoginComponent },
-  // { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: "registro", component: RegistroComponent },
-  { path: "indexturista", component: IndexturistaComponent },
+  { path: "", redirectTo: "/index", pathMatch: "full" },
+  { path: "sigup", component: RegistroComponent },
+  { path: "experience", component: ExperienceComponent },
+  { path: "profile", component: ProfileComponent },
 ];
 
 @NgModule({
