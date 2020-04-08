@@ -19,9 +19,11 @@ import { MatGridListModule } from "@angular/material/grid-list";
 import { MatCardModule } from "@angular/material/card";
 import { MatRadioModule } from "@angular/material/radio";
 import { MatExpansionModule } from "@angular/material/expansion";
-import { FilterComponent } from './filter/filter.component';
-import { ExperienceComponent } from './experience/experience.component';
-import { ProfileComponent } from './profile/profile.component';
+import { FilterComponent } from "./filter/filter.component";
+import { ExperienceComponent } from "./experience/experience.component";
+import { ProfileComponent } from "./profile/profile.component";
+import { MatDialogModule } from "@angular/material/dialog";
+//import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -49,6 +51,7 @@ import { ProfileComponent } from './profile/profile.component';
     MatCardModule,
     MatRadioModule,
     MatExpansionModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

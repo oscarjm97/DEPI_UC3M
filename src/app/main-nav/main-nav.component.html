@@ -4,11 +4,11 @@
     [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">
+      <a mat-list-item href="/profile">
         <mat-icon aria-label="">portrait</mat-icon>
         Tu Perfil
       </a>
-      <a mat-list-item href="#">
+      <a mat-list-item href="/experience">
         <mat-icon aria-label="">import_contacts</mat-icon>
         Mis Experiencias
       </a>
@@ -29,21 +29,27 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Menu</span>
-      <mat-icon aria-label="">account_circle</mat-icon>
-      <mat-icon aria-label="">help_outline</mat-icon>
+      <span>NextAdventure</span>
       <!-- <mat-form-field class="example-full-width">
         <mat-icon matSuffix>search</mat-icon>
         <input matInput type="search" placeholder="Buscar nombres que empiecen por..." class="search-input">
       </mat-form-field> -->
+      <div *ngIf="(isHandset$ | async) === false">
+        <a mat-button [routerLink]="'/'"> Inicio </a>
+        <a mat-button [routerLink]="'/profile'"> Tu Perfil </a>
+        <a mat-button [routerLink]="'/experience'"> Mis Experiencias </a>
+        <a mat-button [routerLink]="'/help'">
+          <mat-icon aria-label="">help_outline</mat-icon>
+        </a>
+        <a mat-button [routerLink]="'/login'">
+          <mat-icon aria-label="">account_circle</mat-icon>
+        </a>
+        <a mat-button [routerLink]="'/logout'"> Cerrar sesión </a>
+      </div>
     </mat-toolbar>
     <app-filter></app-filter>
     <!-- Add Content Here -->
     <ng-content></ng-content>
-    <!-- <app-login></app-login> -->
-    <!-- <app-registro></app-registro> -->
-    <app-indexturista></app-indexturista>
-
-
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
