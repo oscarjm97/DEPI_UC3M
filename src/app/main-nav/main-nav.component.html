@@ -34,7 +34,7 @@
         <mat-icon matSuffix>search</mat-icon>
         <input matInput type="search" placeholder="Buscar nombres que empiecen por..." class="search-input">
       </mat-form-field> -->
-      <div>
+      <div *ngIf="(isHandset$ | async) === false">
         <a mat-button [routerLink]="'/'"> Inicio </a>
         <a mat-button [routerLink]="'/profile'"> Tu Perfil </a>
         <a mat-button [routerLink]="'/experience'"> Mis Experiencias </a>
