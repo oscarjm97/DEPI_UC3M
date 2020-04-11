@@ -1,12 +1,35 @@
-<div>
-    <h1>Tu Perfil</h1>
-    <div>
-        <img src="https://kprofiles.com/wp-content/uploads/2019/11/D6aGkQlUcAAgf_n-533x800.jpg"
-            style="width: 200px; height: 100px; border-radius: 10em;">
-        <p>Rol de usuario</p>
-        <p>Aventurero</p>
+<div class="container-flex">
+    <div class="header">
+        <h1>Tu perfil</h1>
     </div>
 
+    <div class="container-row-flex">
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input matInput value="Hyan">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Apellidos</mat-label>
+                <input matInput value="Yong Lee">
+            </mat-form-field>
+        </div>
+        <img class="img-profile"
+            src="https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg">
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput value="yonglee@china.com" type="email">
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="fill">
+                <mat-label>Teléfono</mat-label>
+                <input matInput value="+423763839" type="phone">
+            </mat-form-field>
+        </div>
+    </div>
+    <br>
     <div>
         <mat-card>
             <mat-card-header>
