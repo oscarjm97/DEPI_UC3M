@@ -23,6 +23,7 @@ import { FilterComponent } from "./filter/filter.component";
 import { ExperienceComponent } from "./experience/experience.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { MatDialogModule } from "@angular/material/dialog";
+import { MatMenuModule } from "@angular/material/menu";
 //import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
@@ -52,8 +53,9 @@ import { MatDialogModule } from "@angular/material/dialog";
     MatRadioModule,
     MatExpansionModule,
     MatDialogModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

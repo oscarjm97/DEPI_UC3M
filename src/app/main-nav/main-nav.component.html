@@ -36,15 +36,17 @@
       </mat-form-field> -->
       <div *ngIf="(isHandset$ | async) === false">
         <a mat-button [routerLink]="'/'"> Inicio </a>
-        <a mat-button [routerLink]="'/profile'"> Tu Perfil </a>
         <a mat-button [routerLink]="'/experience'"> Mis Experiencias </a>
+        <button mat-button [matMenuTriggerFor]="user">
+          <mat-icon aria-label="">account_circle</mat-icon>
+        </button>
+        <mat-menu #user="matMenu">
+          <button mat-menu-item [routerLink]="'/profile'">Tu perfil</button>
+          <button mat-menu-item [routerLink]="'/login'">Cerrar sesión</button>
+        </mat-menu>
         <a mat-button [routerLink]="'/help'">
           <mat-icon aria-label="">help_outline</mat-icon>
         </a>
-        <a mat-button [routerLink]="'/login'">
-          <mat-icon aria-label="">account_circle</mat-icon>
-        </a>
-        <a mat-button [routerLink]="'/logout'"> Cerrar sesión </a>
       </div>
     </mat-toolbar>
     <app-filter></app-filter>
