@@ -22,3 +22,9 @@
   border-style: solid;
   border-radius: 50px;
 }
+
+@media(max-width: 768px) {
+  .container-row-flex {
+    flex-direction: column;
+  }
+}
