@@ -10,10 +10,13 @@ export class LoginComponent implements OnInit {
 
   hide: boolean;
   
-  constructor(private router: Router) {
-  }
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.hide = true;
+  }
+
+  onSubmit() {
+
   }
 }

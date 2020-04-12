@@ -2,14 +2,14 @@
     <mat-card>
         <mat-card-title>Regístrate</mat-card-title>
         <mat-card-content>
-            <form>
-                <p>
+            <form (ngSubmit)="onSubmit()">
+                <div>
                     <mat-form-field appearance="outline" class="example-full-width">
                         <mat-label>Usuario</mat-label>
                         <input matInput required placeholder="Ingrese su usuario" value="">
                     </mat-form-field>
-                </p>
-                <p>
+                </div>
+                <div>
                     <mat-form-field appearance="outline">
                         <mat-label>Contraseña</mat-label>
                         <input matInput required [type]="hide ? 'password' : 'text'" placeholder="Ingrese su contraseña">
@@ -18,20 +18,20 @@
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
                     </mat-form-field>
-                </p>
-                <p>
+                </div>
+                <div>
                     <mat-form-field appearance="outline">
                         <mat-label>E-Mail</mat-label>
                         <input matInput required type="email" placeholder="pat@example.com">
                     </mat-form-field>
-                </p>
+                </div>
 
                 <mat-radio-group required>
                     <mat-radio-button value="turista">Turista</mat-radio-button>
                     <mat-radio-button value="aventurero">Aventurero</mat-radio-button>
                 </mat-radio-group>
 
-                <button class="btn-primary" mat-raised-button color="primary">Enviar</button>
+                <button class="btn-primary" mat-raised-button color="primary" type="submit">Enviar</button>
                 <button class="btn-primary" mat-raised-button color="accent" type="button" routerLink="/login">Atrás</button>
             </form>
         </mat-card-content>
