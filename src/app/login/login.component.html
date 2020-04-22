@@ -6,13 +6,13 @@
         <mat-card-title class="header-box">Login</mat-card-title>
         <mat-card-content>
             <form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit(loginForm.value)">
-                <div>
+                <p>
                     <mat-form-field appearance="outline" class="example-full-width">
                         <mat-label>User</mat-label>
                         <input matInput required placeholder="Insert your user" formControlName="user">
                     </mat-form-field>
-                </div>
-                <div>
+                </p>
+                <p>
                     <mat-form-field appearance="outline">
                         <mat-label>Password</mat-label>
                         <input matInput required [type]="hide ? 'password' : 'text'" placeholder="Insert your password"
@@ -22,7 +22,7 @@
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
                     </mat-form-field>
-                </div>
+                </p>
                 <button mat-raised-button color="primary" type="submit">Log In</button>
                 <p>Not registered yet?</p>
                 <button mat-raised-button color="accent" type="button" routerLink="/signup">Sign Up</button>
