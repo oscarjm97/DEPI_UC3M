@@ -24,6 +24,7 @@ import { ExperienceComponent } from "./experience/experience.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatMenuModule } from "@angular/material/menu";
+import { DialogExampleComponent } from "./dialog-example/dialog-example.component";
 //import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
@@ -36,7 +37,9 @@ import { MatMenuModule } from "@angular/material/menu";
     FilterComponent,
     ExperienceComponent,
     ProfileComponent,
+    DialogExampleComponent,
   ],
+  entryComponents: [DialogExampleComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
