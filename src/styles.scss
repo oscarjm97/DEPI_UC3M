@@ -10,3 +10,14 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.bg-body {
+  background-size: cover;
+  background-repeat: no-repeat, repeat;
+  background-image: url("/assets/img/paper_plane_takeoff.jpg");
+}
+
+/* .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  color: green !important;
+}
+ */

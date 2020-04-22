@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: "index", component: IndexturistaComponent },
   { path: "login", component: LoginComponent },
   { path: "signup", component: RegistroComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/index', pathMatch: 'full' },
   { path: "experience", component: ExperienceComponent },
   { path: "profile", component: ProfileComponent },
 ];
