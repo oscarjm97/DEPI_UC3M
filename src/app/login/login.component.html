@@ -5,45 +5,27 @@
     <mat-card class="box">
         <mat-card-title class="header-box">Login</mat-card-title>
         <mat-card-content>
-<<<<<<< HEAD
             <form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit(loginForm.value)">
                 <div>
-=======
-            <form (ngSubmit)="onSubmit()">
-                <p>
->>>>>>> d7a8806b5241bacb7bb11e0d9f5644d403344e51
                     <mat-form-field appearance="outline" class="example-full-width">
                         <mat-label>User</mat-label>
                         <input matInput required placeholder="Insert your user" formControlName="user">
                     </mat-form-field>
-                </p>
-                <p>
+                </div>
+                <div>
                     <mat-form-field appearance="outline">
-<<<<<<< HEAD
                         <mat-label>Password</mat-label>
                         <input matInput required [type]="hide ? 'password' : 'text'" placeholder="Insert your password"
                             formControlName="password">
-=======
-                        <mat-label>Contraseña</mat-label>
-                        <input matInput required [type]="hide ? 'password' : 'text'"
-                            placeholder="Ingrese su contraseña">
->>>>>>> d7a8806b5241bacb7bb11e0d9f5644d403344e51
                         <button mat-icon-button matSuffix type="button" (click)="hide = !hide"
                             [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
                     </mat-form-field>
-<<<<<<< HEAD
                 </div>
                 <button mat-raised-button color="primary" type="submit">Log In</button>
                 <p>Not registered yet?</p>
                 <button mat-raised-button color="accent" type="button" routerLink="/signup">Sign Up</button>
-=======
-                </p>
-                <button mat-raised-button color="primary">Enviar</button>
-                <p>¿Aún no estás registrado?</p>
-                <button mat-raised-button color="accent" type="button" routerLink="/signup">Regístrate</button>
->>>>>>> d7a8806b5241bacb7bb11e0d9f5644d403344e51
             </form>
         </mat-card-content>
     </mat-card>
