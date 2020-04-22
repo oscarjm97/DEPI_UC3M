@@ -2,7 +2,7 @@
     <mat-card class="box">
         <mat-card-title class="header-box">Registro</mat-card-title>
         <mat-card-content>
-            <form class="form-row">
+            <form class="form-row" (ngSubmit)="onSubmit()">
                 <p>
                     <mat-form-field appearance="outline" class="example-full-width">
                         <mat-label>Nombre</mat-label>
