@@ -1,4 +1,57 @@
-<div>
+<div class="row-flex">
+    <mat-card class="box">
+        <mat-card-title class="header-box">Registro</mat-card-title>
+        <mat-card-content>
+            <form class="form-row">
+                <p>
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput required placeholder="Nombre">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Apellidos</mat-label>
+                        <input matInput required placeholder="Apellidos">
+                    </mat-form-field>
+                </p>
+                <p style="flex: 1 100%;">
+                    <mat-form-field appearance="outline">
+                        <mat-label>E-Mail</mat-label>
+                        <input matInput required type="email" placeholder="pat@example.com">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Usuario</mat-label>
+                        <input matInput required placeholder="Usuario">
+                    </mat-form-field>
+                </p>
+                <p>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Contraseña</mat-label>
+                        <input matInput required [type]="hide ? 'password' : 'text'"
+                            placeholder="Ingrese su contraseña">
+                        <button mat-icon-button matSuffix type="button" (click)="hide = !hide"
+                            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </p>
+                <p style="flex: 1 100%;">
+                    <mat-radio-group required>
+                        <mat-radio-button value="turista">Turista</mat-radio-button>
+                        <mat-radio-button value="aventurero">Aventurero</mat-radio-button>
+                    </mat-radio-group>
+                </p>
+                <button class="btn-primary" mat-raised-button color="accent" type="button"
+                    routerLink="/login">Atrás</button>
+                <button class="btn-primary" mat-raised-button color="primary">Enviar</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
+<!-- <div>
     <mat-card>
         <mat-card-title>Regístrate</mat-card-title>
         <mat-card-content>
@@ -12,9 +65,10 @@
                 <p>
                     <mat-form-field appearance="outline">
                         <mat-label>Contraseña</mat-label>
-                        <input matInput required [type]="hide ? 'password' : 'text'" placeholder="Ingrese su contraseña">
-                        <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                            [attr.aria-pressed]="hide">
+                        <input matInput required [type]="hide ? 'password' : 'text'"
+                            placeholder="Ingrese su contraseña">
+                        <button mat-icon-button matSuffix type="button" (click)="hide = !hide"
+                            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
                     </mat-form-field>
@@ -32,11 +86,12 @@
                 </mat-radio-group>
 
                 <button class="btn-primary" mat-raised-button color="primary">Enviar</button>
-                <button class="btn-primary" mat-raised-button color="accent" type="button" routerLink="/login">Atrás</button>
+                <button class="btn-primary" mat-raised-button color="accent" type="button"
+                    routerLink="/login">Atrás</button>
             </form>
         </mat-card-content>
     </mat-card>
-</div>
+</div> -->
 <!-- <body>
     <header>
         <h1 class="header centrar-texto">Registro</h1>
