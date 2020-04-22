@@ -1,5 +1,7 @@
-import { Component, OnInit, Renderer2 } from "@angular/core";
-import { Router } from "@angular/router";
+import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: "app-login",
@@ -7,6 +9,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent implements OnInit {
+
   hide: boolean;
 
   constructor(private router: Router, private renderer: Renderer2) {
@@ -17,6 +20,12 @@ export class LoginComponent implements OnInit {
     this.hide = true;
     document.body.className = "bg-body";
   }
+
+  onSubmit(value) {
+    console.log("USER INFORMATION: " + value);
+    this.router.navigate(['index']);
+  }
+
   ngOnDestroy() {
     document.body.className = "";
   }
