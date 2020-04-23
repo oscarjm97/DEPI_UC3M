@@ -9,21 +9,31 @@
                 <p>
                     <mat-form-field appearance="outline" class="example-full-width">
                         <mat-label>User</mat-label>
-                        <input matInput required placeholder="Insert your user" formControlName="user">
+                        <input matInput placeholder="Insert your user" formControlName="user">
                     </mat-form-field>
+                    <ng-container *ngFor="let validation of validation_messages.user">
+                        <mat-error
+                            *ngIf="loginForm.get('user').hasError(validation.type) && (loginForm.get('user').dirty || loginForm.get('user').touched)">
+                            {{validation.message}}</mat-error>
+                    </ng-container>
                 </p>
                 <p>
                     <mat-form-field appearance="outline">
                         <mat-label>Password</mat-label>
-                        <input matInput required [type]="hide ? 'password' : 'text'" placeholder="Insert your password"
+                        <input matInput [type]="hide ? 'password' : 'text'" placeholder="Insert your password"
                             formControlName="password">
                         <button mat-icon-button matSuffix type="button" (click)="hide = !hide"
                             [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
                     </mat-form-field>
+                    <ng-container *ngFor="let validation of validation_messages.password">
+                        <mat-error
+                            *ngIf="loginForm.get('password').hasError(validation.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+                            {{validation.message}}</mat-error>
+                    </ng-container>
                 </p>
-                <button mat-raised-button color="primary" type="submit">Log In</button>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Log In</button>
                 <p>Not registered yet?</p>
                 <button mat-raised-button color="accent" type="button" routerLink="/signup">Sign Up</button>
             </form>

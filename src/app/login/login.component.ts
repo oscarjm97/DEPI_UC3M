@@ -1,7 +1,6 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: "app-login",
@@ -11,9 +10,22 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 export class LoginComponent implements OnInit {
 
   hide: boolean;
+  loginForm: FormGroup;
+  validation_messages = {
+    'user': [
+      { type: 'required', message: 'User is required.' }
+    ],
+    'password': [
+      { type: 'required', message: 'Password is required.' }
+    ]
+  };
 
-  constructor(private router: Router, private renderer: Renderer2) {
+  constructor(private router: Router, private renderer: Renderer2, fb: FormBuilder) {
     //this.renderer.setStyle(document.body, "background", "#FFF");
+    this.loginForm = fb.group({
+      user: ["", Validators.required],
+      password: ["", Validators.required]
+    });
   }
 
   ngOnInit() {
@@ -21,12 +33,12 @@ export class LoginComponent implements OnInit {
     document.body.className = "bg-body";
   }
 
-  onSubmit(value) {
-    console.log("USER INFORMATION: " + value);
-    this.router.navigate(['index']);
-  }
-
   ngOnDestroy() {
     document.body.className = "";
+  }
+
+  onSubmit(value) {
+    console.log(value);
+    this.router.navigate(['index']);
   }
 }

@@ -59,6 +59,10 @@ mat-card-content {
   justify-content: center;
 }
 
+mat-error {
+  font-size: 12px;
+}
+
 mat-card-content>form {
   color: white;
 }

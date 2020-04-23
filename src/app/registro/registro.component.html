@@ -2,51 +2,82 @@
     <mat-card class="box">
         <mat-card-title class="header-box">Registro</mat-card-title>
         <mat-card-content>
-            <form class="form-row" (ngSubmit)="onSubmit()">
+            <form class="form-row" [formGroup]="signupForm" novalidate (ngSubmit)="onSubmit(signupForm.value)">
                 <p>
                     <mat-form-field appearance="outline" class="example-full-width">
-                        <mat-label>Nombre</mat-label>
-                        <input matInput required placeholder="Nombre">
+                        <mat-label>Name</mat-label>
+                        <input matInput placeholder="Insert your name" formControlName="name">
                     </mat-form-field>
+                    <ng-container *ngFor="let validation of validation_messages.name">
+                        <mat-error
+                            *ngIf="signupForm.get('name').hasError(validation.type) && (signupForm.get('name').dirty || signupForm.get('name').touched)">
+                            {{validation.message}}</mat-error>
+                    </ng-container>
                 </p>
                 <p>
                     <mat-form-field appearance="outline" class="example-full-width">
-                        <mat-label>Apellidos</mat-label>
-                        <input matInput required placeholder="Apellidos">
+                        <mat-label>Surname</mat-label>
+                        <input matInput placeholder="Insert your surname" formControlName="surname">
                     </mat-form-field>
+                    <ng-container *ngFor="let validation of validation_messages.surname">
+                        <mat-error
+                            *ngIf="signupForm.get('surname').hasError(validation.type) && (signupForm.get('surname').dirty || signupForm.get('surname').touched)">
+                            {{validation.message}}</mat-error>
+                    </ng-container>
                 </p>
                 <p style="flex: 1 100%;">
                     <mat-form-field appearance="outline">
                         <mat-label>E-Mail</mat-label>
-                        <input matInput required type="email" placeholder="pat@example.com">
+                        <input matInput type="email" placeholder="pat@example.com" formControlName="email">
                     </mat-form-field>
+                    <ng-container *ngFor="let validation of validation_messages.email">
+                        <mat-error
+                            *ngIf="signupForm.get('email').hasError(validation.type) && (signupForm.get('email').dirty || signupForm.get('email').touched)">
+                            {{validation.message}}</mat-error>
+                    </ng-container>
                 </p>
                 <p>
                     <mat-form-field appearance="outline" class="example-full-width">
-                        <mat-label>Usuario</mat-label>
-                        <input matInput required placeholder="Usuario">
+                        <mat-label>User</mat-label>
+                        <input matInput placeholder="Insert your user" formControlName="user">
                     </mat-form-field>
+                    <ng-container *ngFor="let validation of validation_messages.user">
+                        <mat-error
+                            *ngIf="signupForm.get('user').hasError(validation.type) && (signupForm.get('user').dirty || signupForm.get('user').touched)">
+                            {{validation.message}}</mat-error>
+                    </ng-container>
                 </p>
                 <p>
                     <mat-form-field appearance="outline">
-                        <mat-label>Contraseña</mat-label>
-                        <input matInput required [type]="hide ? 'password' : 'text'"
-                            placeholder="Ingrese su contraseña">
+                        <mat-label>Password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" placeholder="Insert your password"
+                            formControlName="password">
                         <button mat-icon-button matSuffix type="button" (click)="hide = !hide"
                             [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
                     </mat-form-field>
+                    <ng-container *ngFor="let validation of validation_messages.password">
+                        <mat-error
+                            *ngIf="signupForm.get('password').hasError(validation.type) && (signupForm.get('password').dirty || signupForm.get('password').touched)">
+                            {{validation.message}}</mat-error>
+                    </ng-container>
                 </p>
                 <p style="flex: 1 100%;">
-                    <mat-radio-group required>
+                    <mat-radio-group formControlName="usertype">
                         <mat-radio-button value="turista">Turista</mat-radio-button>
                         <mat-radio-button value="aventurero">Aventurero</mat-radio-button>
                     </mat-radio-group>
+                    <ng-container *ngFor="let validation of validation_messages.usertype">
+                        <mat-error
+                            *ngIf="signupForm.get('usertype').hasError(validation.type) && (signupForm.get('usertype').dirty || signupForm.get('usertype').touched)">
+                            {{validation.message}}</mat-error>
+                    </ng-container>
                 </p>
                 <button class="btn-primary" mat-raised-button color="accent" type="button"
                     routerLink="/login">Atrás</button>
-                <button class="btn-primary" mat-raised-button color="primary">Enviar</button>
+                <button class="btn-primary" mat-raised-button color="primary" type="submit"
+                    [disabled]="!signupForm.valid">Enviar</button>
             </form>
         </mat-card-content>
     </mat-card>
