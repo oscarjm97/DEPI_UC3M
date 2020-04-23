@@ -5,8 +5,8 @@
             <form class="form-row" [formGroup]="signupForm" novalidate (ngSubmit)="onSubmit(signupForm.value)">
                 <p>
                     <mat-form-field appearance="outline" class="example-full-width">
-                        <mat-label>Name</mat-label>
-                        <input matInput placeholder="Insert your name" formControlName="name">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput placeholder="Ingrese su nombre" formControlName="name">
                     </mat-form-field>
                     <ng-container *ngFor="let validation of validation_messages.name">
                         <mat-error
@@ -16,8 +16,8 @@
                 </p>
                 <p>
                     <mat-form-field appearance="outline" class="example-full-width">
-                        <mat-label>Surname</mat-label>
-                        <input matInput placeholder="Insert your surname" formControlName="surname">
+                        <mat-label>Apellidos</mat-label>
+                        <input matInput placeholder="Ingrese sus apellidos" formControlName="surname">
                     </mat-form-field>
                     <ng-container *ngFor="let validation of validation_messages.surname">
                         <mat-error
@@ -38,8 +38,8 @@
                 </p>
                 <p>
                     <mat-form-field appearance="outline" class="example-full-width">
-                        <mat-label>User</mat-label>
-                        <input matInput placeholder="Insert your user" formControlName="user">
+                        <mat-label>Usuario</mat-label>
+                        <input matInput placeholder="Ingrese su usuario" formControlName="user">
                     </mat-form-field>
                     <ng-container *ngFor="let validation of validation_messages.user">
                         <mat-error
@@ -49,8 +49,8 @@
                 </p>
                 <p>
                     <mat-form-field appearance="outline">
-                        <mat-label>Password</mat-label>
-                        <input matInput [type]="hide ? 'password' : 'text'" placeholder="Insert your password"
+                        <mat-label>Contraseña</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" placeholder="Ingrese su contraseña"
                             formControlName="password">
                         <button mat-icon-button matSuffix type="button" (click)="hide = !hide"
                             [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">

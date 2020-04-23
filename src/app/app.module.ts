@@ -31,6 +31,7 @@ import { MatMenuModule } from "@angular/material/menu";
 import { DialogExampleComponent } from "./dialog-example/dialog-example.component";
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { CommentsComponent } from './comments/comments.component';
 
 //import { FlexLayoutModule } from "@angular/flex-layout";
 
@@ -45,6 +46,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     ExperienceComponent,
     ProfileComponent,
     DialogExampleComponent,
+    CommentsComponent,
   ],
   entryComponents: [DialogExampleComponent],
   imports: [
