@@ -1,4 +1,5 @@
-<!-- <app-nav>
+<app-nav *ngIf='logged'>
+    <router-outlet></router-outlet>
+</app-nav>
 
-</app-nav> -->
-<router-outlet></router-outlet>
+<router-outlet *ngIf='!logged'></router-outlet>

@@ -35,8 +35,30 @@
   color: white;
 }
 
+.form-search {
+  flex: 1;
+}
+
+span>a {
+  text-decoration: none;
+  color: white
+}
+
+.search-input {
+  background: white;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  text-align: center;
+  margin-left: 1%;
+  color: black;
+}
+
 @media (min-width: 768px) {
   .sidenav {
     display: none;
+  }
+
+  .form-search {
+    flex: 0.5;
   }
 }

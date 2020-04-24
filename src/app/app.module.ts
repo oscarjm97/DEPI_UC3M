@@ -32,6 +32,7 @@ import { DialogExampleComponent } from "./dialog-example/dialog-example.componen
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CommentsComponent } from './comments/comments.component';
+import { HelpComponent } from './help/help.component';
 
 //import { FlexLayoutModule } from "@angular/flex-layout";
 
@@ -47,6 +48,7 @@ import { CommentsComponent } from './comments/comments.component';
     ProfileComponent,
     DialogExampleComponent,
     CommentsComponent,
+    HelpComponent,
   ],
   entryComponents: [DialogExampleComponent],
   imports: [

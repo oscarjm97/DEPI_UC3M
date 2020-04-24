@@ -17,4 +17,9 @@ export class MainNavComponent {
     );
 
   constructor(private breakpointObserver: BreakpointObserver) {}
+
+  filterCollapse() {
+    var filter = document.getElementById("filter-component");
+    filter.style.display = "none";
+  }
 }

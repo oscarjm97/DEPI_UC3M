@@ -29,13 +29,22 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>NextAdventure</span>
-      <!-- <mat-form-field class="example-full-width">
+      <span *ngIf="(isHandset$ | async) === false"><a [routerLink]="'/index'"> NextAdventure </a></span>
+      <!-- <mat-form-field class="example-full-width" fill='outline'>
         <mat-icon matSuffix>search</mat-icon>
-        <input matInput type="search" placeholder="Buscar nombres que empiecen por..." class="search-input">
+        <input matInput type="search" placeholder="Buscar" class="search-input">
       </mat-form-field> -->
+      <form class="form-search" [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)">
+        <input matInput type="search" placeholder="Buscar" class="search-input">
+        <!-- <button mat-button>
+          <mat-icon matSuffix>search</mat-icon>
+        </button> -->
+      </form>
+      <button mat-button (click)="filterCollapse()">
+        <mat-icon>tune</mat-icon>
+      </button>
+
       <div *ngIf="(isHandset$ | async) === false">
-        <a mat-button [routerLink]="'/'"> Inicio </a>
         <a mat-button [routerLink]="'/experience'"> Mis Experiencias </a>
         <button mat-button [matMenuTriggerFor]="user">
           <mat-icon aria-label="">account_circle</mat-icon>
@@ -49,7 +58,10 @@
         </a>
       </div>
     </mat-toolbar>
-    <app-filter></app-filter>
+
+    <div id="filter-component">
+      <app-filter></app-filter>
+    </div>
     <!-- Add Content Here -->
     <ng-content></ng-content>
     <router-outlet></router-outlet>
