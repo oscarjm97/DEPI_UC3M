@@ -20,6 +20,11 @@ export class MainNavComponent {
 
   filterCollapse() {
     var filter = document.getElementById("filter-component");
-    filter.style.display = "none";
+    var isActive = filter.classList.contains("active");
+    if (isActive === false) {
+      filter.classList.add("active");
+    } else {
+      filter.classList.remove("active");
+    }
   }
 }

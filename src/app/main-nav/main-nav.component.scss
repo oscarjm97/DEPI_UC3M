@@ -53,6 +53,15 @@ span>a {
   color: black;
 }
 
+#filter-component {
+  display: none;
+  border: 1px black solid;
+}
+
+#filter-component.active {
+  display: block;
+}
+
 @media (min-width: 768px) {
   .sidenav {
     display: none;

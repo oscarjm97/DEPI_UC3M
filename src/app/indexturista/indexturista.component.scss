@@ -1,7 +1,9 @@
 :host {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin: 100px 0;
+  margin: 2%;
+  //margin: 100px 0;
 }
 
 .mat-form-field {

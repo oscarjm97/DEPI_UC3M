@@ -35,7 +35,7 @@
         <mat-icon matSuffix>search</mat-icon>
         <input matInput type="search" placeholder="Buscar" class="search-input">
       </mat-form-field> -->
-      <form class="form-search" [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)">
+      <form class="form-search" (ngSubmit)="onSubmit(searchForm.value)">
         <input matInput type="search" placeholder="Buscar" class="search-input">
         <!-- <button mat-button>
           <mat-icon matSuffix>search</mat-icon>
@@ -60,7 +60,7 @@
       </div>
     </mat-toolbar>
 
-    <div id="filter-component">
+    <div class="filter-dropdown" id="filter-component">
       <app-filter></app-filter>
     </div>
     <!-- Add Content Here -->
