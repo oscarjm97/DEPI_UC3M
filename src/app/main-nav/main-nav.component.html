@@ -29,7 +29,8 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span *ngIf="(isHandset$ | async) === false"><a [routerLink]="'/index'"> NextAdventure </a></span>
+      <span *ngIf="(isHandset$ | async) === false"><a [routerLink]="'/index'"> NextAdventure
+        </a></span>
       <!-- <mat-form-field class="example-full-width" fill='outline'>
         <mat-icon matSuffix>search</mat-icon>
         <input matInput type="search" placeholder="Buscar" class="search-input">
