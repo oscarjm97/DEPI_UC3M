@@ -1,36 +1,33 @@
-import {Achievement} from './Achievement'
-import {Review} from './Review'
+import { Achievement } from './Achievement'
+import { Review } from './Review'
 import { Experience } from './Experience';
 
-export interface IUser{
-    userID:string;
-    name:string;
-    email:string;
-    points:number;
+export class IUser {
+    userID: string;
+    name: string;
     password: string;
+    email: string;
+    points: number;
     rol: string;
-    description:string;
+    description: string;
 
 
 }
 
-
-
-export class User implements IUser{
-    userID:string;
-    name:string;
+export class User implements IUser {
+    userID: string;
+    name: string;
     password: string;
-    rol: string;
     email: string;
     points: number;
+    rol: string;
     description: string;
-    experiences:Experience[];
-    achievements:Achievement[];
-    reviews:Review[];
+    //experiences:Experience[];
+    //achievements:Achievement[];
+    //reviews:Review[];
 
-    constructor(o?:IUser)
-    {
-        if(o !== undefined) Object.assign(this,o);
-    }   
+    constructor(o?: IUser) {
+        if (o !== undefined) Object.assign(this, o);
+    }
 
 }
