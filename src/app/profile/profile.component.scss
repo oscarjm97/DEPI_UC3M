@@ -1,0 +1,30 @@
+.container-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.container-row-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.img-profile {
+  max-width: 300px;
+  max-height: 400px;
+  border-color: #C49860;
+  border-style: solid;
+  border-radius: 50px;
+}
+
+@media(max-width: 768px) {
+  .container-row-flex {
+    flex-direction: column;
+  }
+}

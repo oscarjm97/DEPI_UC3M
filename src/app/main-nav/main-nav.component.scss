@@ -1,0 +1,73 @@
+//IMPORTS
+@import "../app.component.scss";
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* personalizados */
+.mat-drawer-container {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.mat-toolbar.mat-primary,
+.mat-drawer {
+  background-color: $primary-color;
+}
+
+.mat-list-base .mat-list-item,
+.mat-toolbar {
+  color: white;
+}
+
+.form-search {
+  flex: 1;
+}
+
+span>a {
+  text-decoration: none;
+  color: white
+}
+
+.search-input {
+  background: white;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  text-align: center;
+  margin-left: 1%;
+  color: black;
+}
+
+#filter-component {
+  display: none;
+  border: 1px black solid;
+}
+
+#filter-component.active {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .sidenav {
+    display: none;
+  }
+
+  .form-search {
+    flex: 0.5;
+  }
+}

@@ -1,0 +1,38 @@
+@import "../login//login.component.scss";
+
+mat-radio-group {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.btn-primary {
+  margin-top: 1rem;
+}
+
+//redefiniendo los del login
+.box {
+  max-width: 800px;
+  height: 100%;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form-row p,
+button {
+  margin: 1%;
+  flex: 1;
+}
+
+.row-flex {
+  justify-content: center;
+}
+
+mat-error {
+  font-size: 12px;
+}

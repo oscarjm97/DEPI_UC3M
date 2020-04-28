@@ -1,0 +1,68 @@
+@import "../app.component.scss";
+
+.row-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.title-box {
+  flex: 2;
+  margin: 10%;
+  font-size: xx-large;
+  color: indianred;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.box {
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0.3);
+  max-width: 300px;
+  height: 400px;
+  border-radius: 1rem;
+  margin: 8% 10% 0 10%;
+  box-shadow: 0px 2px 10px 2px #888888;
+}
+
+.header-box {
+  text-align: center;
+  color: #cd5c5c; //coral;
+  /* darkgoldenrod;*/
+  font-style: italic;
+  text-decoration: underline;
+}
+
+button {
+  width: 100%;
+  background-color: $primary-color;
+  padding: 0.2rem;
+  border-radius: 1rem;
+  border-color: $primary-color;
+  color: white;
+}
+
+/* :host {
+  display: flex;
+  justify-content: center;
+  margin: 100px 0;
+}
+*/
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+mat-error {
+  font-size: 12px;
+}
+
+mat-card-content>form {
+  color: white;
+}
