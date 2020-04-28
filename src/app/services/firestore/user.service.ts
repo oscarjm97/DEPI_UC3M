@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { User, IUser } from '../../model/User';
-import { error } from 'util';
-
 
 @Injectable({
   providedIn: 'root'

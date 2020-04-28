@@ -2,7 +2,6 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 
-<<<<<<< HEAD
 // Components Import
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./login/login.component";
@@ -12,6 +11,10 @@ import { MainNavComponent } from "./main-nav/main-nav.component";
 import { FilterComponent } from "./filter/filter.component";
 import { ExperienceComponent } from "./experience/experience.component";
 import { ProfileComponent } from "./profile/profile.component";
+import { CommentsComponent } from './comments/comments.component';
+import { HelpComponent } from './help/help.component';
+import { environment } from '../environments/environment';
+import { DatabaseComponent } from './database/database.component';
 
 // Angular Modules Import
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -28,32 +31,18 @@ import { MatRadioModule } from "@angular/material/radio";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatMenuModule } from "@angular/material/menu";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { DialogExampleComponent } from "./dialog-example/dialog-example.component";
 
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { CommentsComponent } from './comments/comments.component';
-import { HelpComponent } from './help/help.component';
-
 //import { FlexLayoutModule } from "@angular/flex-layout";
-=======
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { environment } from '../environments/environment';
-import { DatabaseComponent } from './database/database.component';
-
-
->>>>>>> firebase
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-<<<<<<< HEAD
     RegistroComponent,
     IndexturistaComponent,
     MainNavComponent,
@@ -63,15 +52,12 @@ import { DatabaseComponent } from './database/database.component';
     DialogExampleComponent,
     CommentsComponent,
     HelpComponent,
-=======
-    DatabaseComponent
->>>>>>> firebase
+    DatabaseComponent,
   ],
   entryComponents: [DialogExampleComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-<<<<<<< HEAD
     BrowserAnimationsModule,
     LayoutModule,
     MatToolbarModule,
@@ -88,20 +74,11 @@ import { DatabaseComponent } from './database/database.component';
     MatMenuModule,
     FormsModule,
     ReactiveFormsModule,
-=======
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
->>>>>>> firebase
+    AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-<<<<<<< HEAD
-export class AppModule {}
-=======
-export class AppModule {
 
-
-
-}
->>>>>>> firebase
+export class AppModule { }

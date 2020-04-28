@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UserService } from '../services/firestore/user.service';
 import { Subscription } from 'rxjs';
 import { User } from '../model/User';
-import { Experience } from '../model/Experience';
 //import { UV_UDP_REUSEADDR } from 'constants';
 
 @Component({

@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2 } from "@angular/core";
+import { Component, OnInit, OnDestroy, Renderer2 } from "@angular/core";
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
@@ -7,25 +7,25 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
   templateUrl: "./registro.component.html",
   styleUrls: ["./registro.component.scss"],
 })
-export class RegistroComponent implements OnInit {
+export class RegistroComponent implements OnInit, OnDestroy {
   
   hide: boolean;
   signupForm: FormGroup;
   validation_messages = {
     'name': [
-      { type: 'required', message: 'Name is required.' }
+      { type: 'required', message: 'This field is required.' }
     ],
     'surname': [
-      { type: 'required', message: 'Surname is required.' }
+      { type: 'required', message: 'This field is required.' }
     ],
     'email': [
-      { type: 'required', message: 'Email is required.' }
+      { type: 'required', message: 'This field is required.' }
     ],
     'user': [
-      { type: 'required', message: 'User is required.' }
+      { type: 'required', message: 'This field is required.' }
     ],
     'password': [
-      { type: 'required', message: 'Password is required.' }
+      { type: 'required', message: 'This field is required.' }
     ],
     'usertype': [
       { type: 'required', message: 'Choose a type of user' }

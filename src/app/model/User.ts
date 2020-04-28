@@ -10,8 +10,6 @@ export class IUser {
     points: number;
     rol: string;
     description: string;
-
-
 }
 
 export class User implements IUser {
