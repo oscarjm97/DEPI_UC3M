@@ -2,11 +2,6 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 
-<<<<<<< HEAD
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-=======
 // Components Import
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./login/login.component";
@@ -40,14 +35,10 @@ import { CommentsComponent } from './comments/comments.component';
 import { HelpComponent } from './help/help.component';
 
 //import { FlexLayoutModule } from "@angular/flex-layout";
->>>>>>> develop
 
 @NgModule({
   declarations: [
     AppComponent,
-<<<<<<< HEAD
-    LoginComponent
-=======
     LoginComponent,
     RegistroComponent,
     IndexturistaComponent,
@@ -58,7 +49,6 @@ import { HelpComponent } from './help/help.component';
     DialogExampleComponent,
     CommentsComponent,
     HelpComponent,
->>>>>>> develop
   ],
   entryComponents: [DialogExampleComponent],
   imports: [
