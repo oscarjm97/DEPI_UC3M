@@ -1,0 +1,9 @@
+<p>database works!</p>
+<ul>
+<li *ngFor="let user of users"> (1)
+  {{ user.name }} ,   {{ user.experiences }}<br>
+</li>
+<button (click)="getUserByName('Juan')">HELLO</button>
+<button (click)="login('Oscar123','oscarpass')">Log in</button>
+<p *ngIf="userJuan">{{userJuan.rol}}</p>
+</ul>

@@ -2,6 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 
+<<<<<<< HEAD
 // Components Import
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./login/login.component";
@@ -35,11 +36,24 @@ import { CommentsComponent } from './comments/comments.component';
 import { HelpComponent } from './help/help.component';
 
 //import { FlexLayoutModule } from "@angular/flex-layout";
+=======
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+import { DatabaseComponent } from './database/database.component';
+
+
+>>>>>>> firebase
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+<<<<<<< HEAD
     RegistroComponent,
     IndexturistaComponent,
     MainNavComponent,
@@ -49,11 +63,15 @@ import { HelpComponent } from './help/help.component';
     DialogExampleComponent,
     CommentsComponent,
     HelpComponent,
+=======
+    DatabaseComponent
+>>>>>>> firebase
   ],
   entryComponents: [DialogExampleComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+<<<<<<< HEAD
     BrowserAnimationsModule,
     LayoutModule,
     MatToolbarModule,
@@ -70,8 +88,20 @@ import { HelpComponent } from './help/help.component';
     MatMenuModule,
     FormsModule,
     ReactiveFormsModule,
+=======
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
+>>>>>>> firebase
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
+<<<<<<< HEAD
 export class AppModule {}
+=======
+export class AppModule {
+
+
+
+}
+>>>>>>> firebase
