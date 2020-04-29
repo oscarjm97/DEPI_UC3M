@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   hide: boolean;
   loginForm: FormGroup;
   validation_messages = {
-    'user': [
+    'userID': [
       { type: 'required', message: 'This field is required.' }
     ],
     'password': [
@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(private router: Router, private renderer: Renderer2, fb: FormBuilder, private userService: UserService) {
     //this.renderer.setStyle(document.body, "background", "#FFF");
     this.loginForm = fb.group({
-      user: ["", Validators.required],
+      userID: ["", Validators.required],
       password: ["", Validators.required]
     });
     this.users = [];
@@ -54,13 +54,13 @@ export class LoginComponent implements OnInit, OnDestroy {
   async onSubmit(value) {
     console.log(value);
     for (let user of this.users) {
-      if (user.userID == value.user) {
+      if (user.userID == value.userID) {
         this.existUser = true;
       }
     }
 
     if (this.existUser) {
-      this.userLogged = await this.userService.getUser(value.user);
+      this.userLogged = await this.userService.getUser(value.userID);
       if (this.userLogged.password == value.password) {
         console.log("Login successful.");
         // Marcar usuario como logueado

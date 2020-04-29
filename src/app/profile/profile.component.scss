@@ -25,6 +25,17 @@
 
 @media(max-width: 768px) {
   .container-row-flex {
+    display: grid;
     flex-direction: column;
+    justify-content: center;
+  }
+
+  .container-row-flex div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container-row-flex img {
+    margin-bottom: 1rem;
   }
 }

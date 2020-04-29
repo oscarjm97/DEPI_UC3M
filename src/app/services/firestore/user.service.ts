@@ -25,6 +25,14 @@ export class UserService {
     });
   }
 
+  public createUser(user: IUser): Promise<string> {
+    //return this.firestore.collection<IUser>('users').add({... data}).then(r=>{
+    // return r.userID;});
+    return this.afs.doc(user.userID).set({ ...user }).then(r => {
+      return user.userID;
+    });
+  }
+
   public getUserByName(userName: string): Observable<User[]> {
     return this.firestore.collection<User>('users', ref => ref.where("name", "==", userName)).valueChanges();
   }

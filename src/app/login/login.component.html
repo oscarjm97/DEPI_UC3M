@@ -7,14 +7,14 @@
     <mat-card-content>
       <form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit(loginForm.value)">
         <p>
-          <ng-container *ngFor="let validation of validation_messages.user">
+          <ng-container *ngFor="let validation of validation_messages.userID">
             <mat-error
-              *ngIf="loginForm.get('user').hasError(validation.type) && (loginForm.get('user').dirty || loginForm.get('user').touched)">
+              *ngIf="loginForm.get('userID').hasError(validation.type) && (loginForm.get('userID').dirty || loginForm.get('userID').touched)">
               {{validation.message}}</mat-error>
           </ng-container>
           <mat-form-field appearance="outline" class="example-full-width">
             <mat-label>User</mat-label>
-            <input matInput placeholder="Insert your user" formControlName="user">
+            <input matInput placeholder="Insert your user" formControlName="userID">
           </mat-form-field>
         </p>
         <p>

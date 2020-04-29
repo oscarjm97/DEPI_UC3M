@@ -5,6 +5,7 @@ import { Experience } from './Experience';
 export class IUser {
     userID: string;
     name: string;
+    surname: string;
     password: string;
     email: string;
     points: number;
@@ -15,6 +16,7 @@ export class IUser {
 export class User implements IUser {
     userID: string;
     name: string;
+    surname: string;
     password: string;
     email: string;
     points: number;
