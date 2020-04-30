@@ -35,12 +35,13 @@
         <mat-icon matSuffix>search</mat-icon>
         <input matInput type="search" placeholder="Buscar" class="search-input">
       </mat-form-field> -->
-      <form class="form-search" (ngSubmit)="onSubmit(searchForm.value)">
-        <input matInput type="search" placeholder="Buscar" class="search-input">
-        <!-- <button mat-button>
+      <!-- <form class="form-search" (ngSubmit)="onSubmit(searchForm.value)"> -->
+      <input matInput type="search" placeholder="Buscar" class="search-input" id="search-experience"
+        [(ngModel)]='searchForm'>
+      <!-- <button mat-button>
           <mat-icon matSuffix>search</mat-icon>
         </button> -->
-      </form>
+      <!-- </form> -->
       <button mat-button (click)="filterCollapse()">
         <mat-icon>tune</mat-icon>
       </button>

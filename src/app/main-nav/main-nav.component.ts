@@ -11,6 +11,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./main-nav.component.scss"],
 })
 export class MainNavComponent {
+  public searchForm: string = "";
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(
