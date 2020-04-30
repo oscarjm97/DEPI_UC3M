@@ -55,8 +55,8 @@ export class AuthService {
       });
   }
 
-  public checkExistUser(userId: string): boolean {
-    const userInDB = this.getUserById(userId);
+  public async checkExistUser(userID: string): Promise<boolean> {
+    const userInDB = await this.getUserById(userID);
     if (userInDB != null) return true;
     else return false;
   }

@@ -1,14 +1,12 @@
 import { Component, OnInit, OnDestroy, Renderer2 } from "@angular/core";
-import { Router } from "@angular/router";
 import {
   FormGroup,
   FormBuilder,
   Validators,
   FormControl,
 } from "@angular/forms";
-import { Subscription } from "rxjs";
-import { User } from "../model/User";
 import { AuthService } from "./../shared/auth.service";
+import { User } from "../model/User";
 
 @Component({
   selector: "app-registro",
@@ -26,15 +24,12 @@ export class RegistroComponent implements OnInit, OnDestroy {
     password: [{ type: "required", message: "This field is required." }],
     rol: [{ type: "required", message: "Choose a type of user" }],
   };
-  users: User[];
-  s_users: Subscription;
-  uniqueUser: boolean;
+  userLogged: User;
 
   constructor(
-    private router: Router,
     private renderer: Renderer2,
     private fb: FormBuilder,
-    private userService: AuthService
+    private authService: AuthService
   ) {
     this.signupForm = fb.group({
       name: ["", Validators.required],
@@ -44,39 +39,29 @@ export class RegistroComponent implements OnInit, OnDestroy {
       password: ["", Validators.required],
       rol: ["", Validators.required],
     });
-    this.users = [];
-    this.uniqueUser = true;
+    this.userLogged = new User();
   }
 
   ngOnInit() {
     this.hide = true;
     document.body.className = "bg-body";
-    this.s_users = this.userService.getAllUsers().subscribe((data) => {
-      this.users = data;
-    });
   }
 
   ngOnDestroy() {
     document.body.className = "";
   }
 
-  onSubmit(value) {
-    console.log(value);
-    for (let user of this.users) {
-      if (user.userID == value.userID) {
-        this.uniqueUser = false;
-      }
-    }
-
-    if (this.uniqueUser) {
-      this.userService.createUser(value).then((res) => {
+  async onSubmit(value) {
+    const exists = await this.authService.checkExistUser(value.userID);
+    if (!exists) {
+      await this.authService.createUser(value).then((res) => {
         console.log("The user has been created successfully.");
-        this.router.navigate(["index"]);
       });
+      this.userLogged = await this.authService.getUserById(value.userID);
+      this.authService.SignIn(this.userLogged);
     } else {
       console.log("This user already exist.");
       this.signupForm.reset(); // Borrar los input del formulario
     }
-    this.uniqueUser = true;
   }
 }
