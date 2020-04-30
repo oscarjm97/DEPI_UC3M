@@ -1,9 +1,14 @@
 import { Component, OnInit, OnDestroy, Renderer2 } from "@angular/core";
-import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { UserService } from '../services/firestore/user.service';
-import { Subscription } from 'rxjs';
-import { User } from '../model/User';
+import { Router } from "@angular/router";
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  FormControl,
+} from "@angular/forms";
+import { Subscription } from "rxjs";
+import { User } from "../model/User";
+import { AuthService } from "./../shared/auth.service";
 
 @Component({
   selector: "app-registro",
@@ -11,41 +16,33 @@ import { User } from '../model/User';
   styleUrls: ["./registro.component.scss"],
 })
 export class RegistroComponent implements OnInit, OnDestroy {
-
   hide: boolean;
   signupForm: FormGroup;
   validation_messages = {
-    'name': [
-      { type: 'required', message: 'This field is required.' }
-    ],
-    'surname': [
-      { type: 'required', message: 'This field is required.' }
-    ],
-    'email': [
-      { type: 'required', message: 'This field is required.' }
-    ],
-    'userID': [
-      { type: 'required', message: 'This field is required.' }
-    ],
-    'password': [
-      { type: 'required', message: 'This field is required.' }
-    ],
-    'rol': [
-      { type: 'required', message: 'Choose a type of user' }
-    ]
+    name: [{ type: "required", message: "This field is required." }],
+    surname: [{ type: "required", message: "This field is required." }],
+    email: [{ type: "required", message: "This field is required." }],
+    userID: [{ type: "required", message: "This field is required." }],
+    password: [{ type: "required", message: "This field is required." }],
+    rol: [{ type: "required", message: "Choose a type of user" }],
   };
   users: User[];
   s_users: Subscription;
   uniqueUser: boolean;
 
-  constructor(private router: Router, private renderer: Renderer2, private fb: FormBuilder, private userService: UserService) {
+  constructor(
+    private router: Router,
+    private renderer: Renderer2,
+    private fb: FormBuilder,
+    private userService: AuthService
+  ) {
     this.signupForm = fb.group({
-      name: ['', Validators.required],
-      surname: ['', Validators.required],
-      email: ['', Validators.required],
-      userID: ['', Validators.required],
-      password: ['', Validators.required],
-      rol: ['', Validators.required]
+      name: ["", Validators.required],
+      surname: ["", Validators.required],
+      email: ["", Validators.required],
+      userID: ["", Validators.required],
+      password: ["", Validators.required],
+      rol: ["", Validators.required],
     });
     this.users = [];
     this.uniqueUser = true;
@@ -54,7 +51,7 @@ export class RegistroComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.hide = true;
     document.body.className = "bg-body";
-    this.s_users = this.userService.getUsers().subscribe(data => {
+    this.s_users = this.userService.getAllUsers().subscribe((data) => {
       this.users = data;
     });
   }
@@ -72,9 +69,9 @@ export class RegistroComponent implements OnInit, OnDestroy {
     }
 
     if (this.uniqueUser) {
-      this.userService.createUser(value).then(res => {
+      this.userService.createUser(value).then((res) => {
         console.log("The user has been created successfully.");
-        this.router.navigate(['index']);
+        this.router.navigate(["index"]);
       });
     } else {
       console.log("This user already exist.");

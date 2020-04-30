@@ -11,10 +11,10 @@ import { MainNavComponent } from "./main-nav/main-nav.component";
 import { FilterComponent } from "./filter/filter.component";
 import { ExperienceComponent } from "./experience/experience.component";
 import { ProfileComponent } from "./profile/profile.component";
-import { CommentsComponent } from './comments/comments.component';
-import { HelpComponent } from './help/help.component';
-import { environment } from '../environments/environment';
-import { DatabaseComponent } from './database/database.component';
+import { CommentsComponent } from "./comments/comments.component";
+import { HelpComponent } from "./help/help.component";
+import { environment } from "../environments/environment";
+import { DatabaseComponent } from "./database/database.component";
 
 // Angular Modules Import
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -32,12 +32,11 @@ import { MatExpansionModule } from "@angular/material/expansion";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatMenuModule } from "@angular/material/menu";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireModule } from "@angular/fire";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireAuthModule } from "@angular/fire/auth";
 
 import { DialogExampleComponent } from "./dialog-example/dialog-example.component";
-
-//import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -75,10 +74,10 @@ import { DialogExampleComponent } from "./dialog-example/dialog-example.componen
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-
-export class AppModule { }
+export class AppModule {}

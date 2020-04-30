@@ -2,6 +2,8 @@ import { Component } from "@angular/core";
 import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
 import { Observable } from "rxjs";
 import { map, shareReplay } from "rxjs/operators";
+import { AngularFireAuth } from "@angular/fire/auth";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-nav",
@@ -16,7 +18,11 @@ export class MainNavComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private authFire: AngularFireAuth,
+    private router: Router
+  ) {}
 
   filterCollapse() {
     var filter = document.getElementById("filter-component");
@@ -26,5 +32,10 @@ export class MainNavComponent {
     } else {
       filter.classList.remove("active");
     }
+  }
+
+  SignOut() {
+    this.authFire.signOut();
+    this.router.navigate(["login"]);
   }
 }

@@ -1,9 +1,14 @@
-import { Component, OnInit, OnDestroy, Renderer2 } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { UserService } from '../services/firestore/user.service';
-import { Subscription } from 'rxjs';
-import { User } from '../model/User';
+import { Component, OnInit, OnDestroy, Renderer2 } from "@angular/core";
+import { Router } from "@angular/router";
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  FormControl,
+} from "@angular/forms";
+import { Subscription } from "rxjs";
+import { User } from "../model/User";
+import { AuthService } from "./../shared/auth.service";
 
 @Component({
   selector: "app-login",
@@ -11,37 +16,35 @@ import { User } from '../model/User';
   styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent implements OnInit, OnDestroy {
-
   hide: boolean;
   loginForm: FormGroup;
   validation_messages = {
-    'userID': [
-      { type: 'required', message: 'This field is required.' }
-    ],
-    'password': [
-      { type: 'required', message: 'This field is required.' }
-    ]
+    userID: [{ type: "required", message: "This field is required." }],
+    password: [{ type: "required", message: "This field is required." }],
   };
   users: User[];
   s_users: Subscription;
   userLogged: User;
-  existUser: boolean;
 
-  constructor(private router: Router, private renderer: Renderer2, fb: FormBuilder, private userService: UserService) {
+  constructor(
+    private router: Router,
+    private renderer: Renderer2,
+    fb: FormBuilder,
+    private authService: AuthService
+  ) {
     //this.renderer.setStyle(document.body, "background", "#FFF");
     this.loginForm = fb.group({
       userID: ["", Validators.required],
-      password: ["", Validators.required]
+      password: ["", Validators.required],
     });
     this.users = [];
     this.userLogged = new User();
-    this.existUser = false;
   }
 
   ngOnInit() {
     this.hide = true;
     document.body.className = "bg-body";
-    this.s_users = this.userService.getUsers().subscribe(data => {
+    this.s_users = this.authService.getAllUsers().subscribe((data) => {
       this.users = data;
     });
   }
@@ -52,19 +55,12 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   async onSubmit(value) {
-    console.log(value);
-    for (let user of this.users) {
-      if (user.userID == value.userID) {
-        this.existUser = true;
-      }
-    }
-
-    if (this.existUser) {
-      this.userLogged = await this.userService.getUser(value.userID);
+    const exists = this.authService.checkExistUser(value.userID);
+    if (exists) {
+      this.userLogged = await this.authService.getUserById(value.userID);
       if (this.userLogged.password == value.password) {
-        console.log("Login successful.");
-        // Marcar usuario como logueado
-        this.router.navigate(['index']);
+        await this.authService.SignIn(this.userLogged);
+        console.log("Login sucessful!");
       } else {
         console.log("The password is not correct.");
         this.loginForm.reset(); // Borrar los input del formulario
@@ -73,6 +69,5 @@ export class LoginComponent implements OnInit, OnDestroy {
       console.log("The user is not registered.");
       this.loginForm.reset(); // Borrar los input del formulario
     }
-    this.existUser = false;
   }
 }

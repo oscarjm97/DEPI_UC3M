@@ -52,7 +52,7 @@
         </button>
         <mat-menu #user="matMenu">
           <button mat-menu-item [routerLink]="'/profile'">Tu perfil</button>
-          <button mat-menu-item [routerLink]="'/login'">Cerrar sesión</button>
+          <button mat-menu-item (click)='SignOut()'>Cerrar sesión</button>
         </mat-menu>
         <a mat-button [routerLink]="'/help'">
           <mat-icon aria-label="">help_outline</mat-icon>

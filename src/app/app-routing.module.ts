@@ -6,15 +6,22 @@ import { IndexturistaComponent } from "./indexturista/indexturista.component";
 import { ExperienceComponent } from "./experience/experience.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { HelpComponent } from "./help/help.component";
+import { MainNavComponent } from "./main-nav/main-nav.component";
 
 const routes: Routes = [
-  { path: "index", component: IndexturistaComponent },
+  { path: "", redirectTo: "/login", pathMatch: "full" },
   { path: "login", component: LoginComponent },
   { path: "signup", component: RegistroComponent },
-  { path: "", redirectTo: "/login", pathMatch: "full" },
-  { path: "experience", component: ExperienceComponent },
-  { path: "profile", component: ProfileComponent },
-  { path: "help", component: HelpComponent },
+  {
+    path: "",
+    component: MainNavComponent,
+    children: [
+      { path: "index", component: IndexturistaComponent },
+      { path: "experience", component: ExperienceComponent },
+      { path: "profile", component: ProfileComponent },
+      { path: "help", component: HelpComponent },
+    ],
+  },
 ];
 
 @NgModule({

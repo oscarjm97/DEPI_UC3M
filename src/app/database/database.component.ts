@@ -1,16 +1,15 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { UserService } from '../services/firestore/user.service';
-import { Subscription } from 'rxjs';
-import { User } from '../model/User';
+import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Subscription } from "rxjs";
+import { User } from "../model/User";
 //import { UV_UDP_REUSEADDR } from 'constants';
+import { AuthService } from "./../shared/auth.service";
 
 @Component({
-  selector: 'app-database',
-  templateUrl: './database.component.html',
-  styleUrls: ['./database.component.scss'],
+  selector: "app-database",
+  templateUrl: "./database.component.html",
+  styleUrls: ["./database.component.scss"],
 })
 export class DatabaseComponent implements OnInit, OnDestroy {
-
   public users: User[];
   public s_users: Subscription;
 
@@ -18,7 +17,7 @@ export class DatabaseComponent implements OnInit, OnDestroy {
   public userLogged: User;
   public existUser: boolean;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: AuthService) {
     this.users = [];
     this.userJuan = new User();
     this.userLogged = new User();
@@ -26,7 +25,7 @@ export class DatabaseComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.s_users = this.userService.getUsers().subscribe(data => {
+    this.s_users = this.userService.getAllUsers().subscribe((data) => {
       this.users = data;
     });
   }
@@ -43,7 +42,7 @@ export class DatabaseComponent implements OnInit, OnDestroy {
     }
 
     if (this.existUser) {
-      this.userLogged = await this.userService.getUser(userID);
+      this.userLogged = await this.userService.getUserById(userID);
       if (this.userLogged.password == pass) {
         console.log("Login successful.");
         // Marcar usuario como logueado
@@ -59,7 +58,7 @@ export class DatabaseComponent implements OnInit, OnDestroy {
   }
 
   public getUserByName(user: string) {
-    this.userService.getUserByName(user).subscribe(data => {
+    this.userService.getUserByName(user).subscribe((data) => {
       this.userJuan = data[0];
     });
   }
