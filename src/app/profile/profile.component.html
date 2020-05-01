@@ -1,31 +1,30 @@
 <div class="container-flex">
     <div class="header">
-        <h1 class="text-style">Your Profile</h1>
+        <h1 class="text-style">Tu Perfil</h1>
     </div>
 
     <div class="container-row-flex">
         <div>
             <mat-form-field appearance="fill">
-                <mat-label>Name</mat-label>
-                <input matInput value="Hyan">
+                <mat-label>Nombre</mat-label>
+                <input matInput value="{{user.name}}">
             </mat-form-field>
             <br>
             <mat-form-field appearance="fill">
-                <mat-label>Surname</mat-label>
-                <input matInput value="Yong Lee">
+                <mat-label>Apellidos</mat-label>
+                <input matInput value="{{user.surname}}">
             </mat-form-field>
         </div>
-        <img class="img-profile"
-            src="https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg.jpg">
+        <img class="img-profile" src="{{user.photo}}">
         <div>
             <mat-form-field appearance="fill">
-                <mat-label>User</mat-label>
-                <input matInput value="Hyan123">
+                <mat-label>Usuario</mat-label>
+                <input matInput value="{{user.userID}}">
             </mat-form-field>
             <br>
             <mat-form-field appearance="fill">
                 <mat-label>Email</mat-label>
-                <input matInput value="yonglee@china.com" type="email">
+                <input matInput value="{{user.email}}" type="email">
             </mat-form-field>
         </div>
     </div>

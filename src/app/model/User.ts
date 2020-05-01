@@ -11,6 +11,7 @@ export class IUser {
   points: number;
   rol: string;
   description: string;
+  photo: string;
 }
 
 export class User implements IUser {
@@ -22,6 +23,7 @@ export class User implements IUser {
   points: number;
   rol: string;
   description: string;
+  photo: string;
   //experiences:Experience[];
   //achievements:Achievement[];
   //reviews:Review[];

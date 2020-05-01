@@ -19,7 +19,7 @@ const routes: Routes = [
     children: [
       { path: "index", component: IndexturistaComponent },
       { path: "experience", component: ExperienceComponent },
-      { path: "view_experience", component: ViewExperienceComponent },
+      { path: "view_experience/:id", component: ViewExperienceComponent },
       { path: "profile", component: ProfileComponent },
       { path: "help", component: HelpComponent },
     ],

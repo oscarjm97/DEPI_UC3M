@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { User } from "../model/User";
 
 @Component({
   selector: "app-profile",
@@ -6,7 +7,12 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./profile.component.scss"],
 })
 export class ProfileComponent implements OnInit {
-  constructor() {}
+  user: User;
+  constructor() {
+    this.user = new User();
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem("user"));
+  }
 }
