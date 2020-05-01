@@ -1,6 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @import "@angular/material/prebuilt-themes/indigo-pink.css";
 
+$primary-color: #242B45;
+$secondary-color: #cd5c5c;
+$bg-color: #ffffff;
+$bg-btn: #C49860;
+
 html,
 body {
   height: 100%;
@@ -19,6 +24,14 @@ body {
   background-size: cover;
   background-repeat: no-repeat, repeat;
   background-image: url("/assets/img/paper_plane_takeoff.jpg");
+}
+
+*[color="accent"] {
+  background-color: $secondary-color !important;
+}
+
+*[color="primary"] {
+  background-color: $primary-color !important;
 }
 
 /* .mat-form-field-appearance-outline .mat-form-field-outline-thick {

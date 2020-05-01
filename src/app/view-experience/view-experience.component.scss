@@ -1,0 +1,36 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2%;
+}
+
+mat-card-title,
+mat-card-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.mat-card:not([class*=mat-elevation-z]) {
+  box-shadow: none !important;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.flex-row>* {
+  flex: 1;
+  padding-right: 2%;
+}
+
+.flex-row  img{
+    width: 100%;
+}

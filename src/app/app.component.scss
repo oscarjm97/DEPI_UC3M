@@ -1,20 +1,15 @@
+@import '../styles.scss';
 // COLORS
-$primary-color: #242B45;
+/* $primary-color: #242B45;
 $secondary-color: #cd5c5c;
 $bg-color: #ffffff;
-$bg-btn: #C49860;
+$bg-btn: #C49860; */
 
 //FONTS
 $font-color: #000000;
 $font-size: 14px;
 
-*[color="accent"] {
-  background-color: $secondary-color;
-}
 
-*[color="primary"] {
-  background-color: $primary-color;
-}
 
 // UTILIDADES
 .centrar-texto {
