@@ -37,6 +37,8 @@ import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 
 import { DialogExampleComponent } from "./dialog-example/dialog-example.component";
+import { ViewExperienceComponent } from './view-experience/view-experience.component';
+import { ReviewComponent } from './review/review.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { DialogExampleComponent } from "./dialog-example/dialog-example.componen
     CommentsComponent,
     HelpComponent,
     DatabaseComponent,
+    ViewExperienceComponent,
+    ReviewComponent,
   ],
   entryComponents: [DialogExampleComponent],
   imports: [
