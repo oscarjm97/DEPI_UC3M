@@ -10,22 +10,21 @@
             <img src={{exp.photo}} alt="Photo">
             <div>
                 <p>
-                    {{exp.description}}
-                </p>
-                <p>
-                    <span matPrefix>€&nbsp;</span>
-                    <mat-label>{{exp.price}}</mat-label>
-                    <span matSuffix>.00</span>
-                </p>
-                <p>
-                    <button mat-button>
-                        <mat-icon>visibility</mat-icon> 10k reviews
-                    </button>
-                    <mat-icon aria-label="" style="color: yellow;">grade</mat-icon>
-                    <mat-icon aria-label="" style="color: yellow;">grade</mat-icon>
-                    <mat-icon aria-label="" style="color: yellow;">grade</mat-icon>
-                    <button mat-raised-button color="primary" [routerLink]="'/view_experience'">Ver</button>
-                </p>
+                    {{exp.description | slice:0:250}}...
+                    <p>
+                        <span matPrefix>€&nbsp;</span>
+                        <mat-label>{{exp.price}}</mat-label>
+                        <span matSuffix>.00</span>
+                    </p>
+                    <p>
+                        <button mat-button>
+                            <mat-icon>visibility</mat-icon> 10k reviews
+                        </button>
+                        <mat-icon aria-label="" style="color: yellow;">grade</mat-icon>
+                        <mat-icon aria-label="" style="color: yellow;">grade</mat-icon>
+                        <mat-icon aria-label="" style="color: yellow;">grade</mat-icon>
+                        <button mat-raised-button color="primary" [routerLink]="'/view_experience'">Ver</button>
+                    </p>
             </div>
         </div>
     </mat-card>
