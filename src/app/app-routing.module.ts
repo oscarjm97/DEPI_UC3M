@@ -7,7 +7,7 @@ import { ExperienceComponent } from "./experience/experience.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { HelpComponent } from "./help/help.component";
 import { MainNavComponent } from "./main-nav/main-nav.component";
-import { ViewExperienceComponent} from './view-experience/view-experience.component';
+import { ViewExperienceComponent } from "./view-experience/view-experience.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/login", pathMatch: "full" },
@@ -19,7 +19,7 @@ const routes: Routes = [
     children: [
       { path: "index", component: IndexturistaComponent },
       { path: "experience", component: ExperienceComponent },
-      {path: 'view-experience', component: ViewExperienceComponent},
+      { path: "view_experience", component: ViewExperienceComponent },
       { path: "profile", component: ProfileComponent },
       { path: "help", component: HelpComponent },
     ],
@@ -28,8 +28,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  import { ViewExperienceComponent } from './view-experience/view-experience.component';
-exports: [RouterModule],
+  exports: [RouterModule],
   providers: [],
 })
 export class AppRoutingModule {}
