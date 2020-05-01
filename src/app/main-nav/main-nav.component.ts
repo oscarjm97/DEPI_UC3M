@@ -39,4 +39,12 @@ export class MainNavComponent {
     this.authFire.signOut();
     this.router.navigate(["login"]);
   }
+
+  isInIndex(): boolean {
+    if (this.router.url.valueOf() == "/index") {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

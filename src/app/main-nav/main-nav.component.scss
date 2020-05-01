@@ -59,6 +59,17 @@ span>a {
   display: block;
 }
 
+.nav-main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-search {
+  display: flex;
+  justify-content: center;
+  width: inherit;
+}
+
 @media (min-width: 768px) {
   .sidenav {
     display: none;
