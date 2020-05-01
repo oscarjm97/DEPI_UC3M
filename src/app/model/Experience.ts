@@ -2,7 +2,7 @@ export interface IExperience {
   name: string;
   description: string;
   price: number;
-  type: number;
+  type: string;
   rate: number;
   photo: string;
 }
@@ -10,7 +10,7 @@ export class Experience implements IExperience {
   name: string;
   description: string;
   price: number;
-  type: number;
+  type: string;
   rate: number;
   photo: string;
 
