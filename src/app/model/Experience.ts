@@ -5,6 +5,7 @@ export interface IExperience {
   type: string;
   rate: number;
   photo: string;
+  reviews: number[];
 }
 export class Experience implements IExperience {
   name: string;
@@ -13,6 +14,7 @@ export class Experience implements IExperience {
   type: string;
   rate: number;
   photo: string;
+  reviews: number[];
 
   constructor(o?: IExperience) {
     if (o !== undefined) Object.assign(this, o);

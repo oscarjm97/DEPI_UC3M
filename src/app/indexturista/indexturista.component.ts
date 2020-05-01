@@ -12,12 +12,14 @@ import { MainNavComponent } from "../main-nav/main-nav.component";
 export class IndexturistaComponent implements OnInit {
   public experiences: Experience[];
   public s_experiences: Subscription;
+  public arrayRate: number[];
 
   constructor(
     private firestore: FirestoreService,
     private navbar: MainNavComponent
   ) {
     this.experiences = [];
+    this.arrayRate = [];
   }
 
   ngOnInit() {
@@ -38,5 +40,13 @@ export class IndexturistaComponent implements OnInit {
     } else {
       return this.experiences;
     }
+  }
+
+  public getRate(rate) {
+    this.arrayRate = [];
+    for (let index = 0; index < rate; index++) {
+      this.arrayRate.push(index);
+    }
+    return this.arrayRate;
   }
 }

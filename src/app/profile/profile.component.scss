@@ -15,12 +15,27 @@
   justify-content: space-evenly;
 }
 
+.row-flex-milestones {
+  display: flex;
+  flex-direction: row;
+}
+
+.row-flex-milestones>* {
+  flex: 1;
+  margin: 2%;
+}
+
 .img-profile {
   max-width: 300px;
   max-height: 400px;
   border-color: #C49860;
   border-style: solid;
   border-radius: 50px;
+}
+
+.mat-progress-bar {
+  max-height: 20px;
+  height: 20px;
 }
 
 @media(max-width: 768px) {
@@ -37,5 +52,10 @@
 
   .container-row-flex img {
     margin-bottom: 1rem;
+  }
+
+  .row-flex-milestones {
+    flex-direction: column;
+    justify-content: center;
   }
 }

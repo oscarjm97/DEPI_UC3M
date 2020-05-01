@@ -31,7 +31,7 @@ import { MatRadioModule } from "@angular/material/radio";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatMenuModule } from "@angular/material/menu";
-import { MatTableModule } from "@angular/material/table";
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
@@ -76,7 +76,7 @@ import { ReviewComponent } from "./review/review.component";
     MatExpansionModule,
     MatDialogModule,
     MatMenuModule,
-    MatTableModule,
+    MatProgressBarModule,
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
