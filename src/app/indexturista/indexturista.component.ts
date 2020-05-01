@@ -34,8 +34,17 @@ export class IndexturistaComponent implements OnInit {
 
   public getExperiences() {
     if (this.navbar.searchForm != "") {
-      return this.experiences.filter((exp) =>
-        exp.name.toUpperCase().startsWith(this.navbar.searchForm.toUpperCase())
+      return this.experiences.filter(
+        (exp) =>
+          exp.name
+            .toUpperCase()
+            .includes(this.navbar.searchForm.toUpperCase()) ||
+          exp.country
+            .toUpperCase()
+            .includes(this.navbar.searchForm.toUpperCase()) ||
+          exp.province
+            .toUpperCase()
+            .includes(this.navbar.searchForm.toUpperCase())
       );
     } else {
       return this.experiences;

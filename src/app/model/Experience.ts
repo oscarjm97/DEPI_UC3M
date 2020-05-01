@@ -5,6 +5,8 @@ export interface IExperience {
   type: string;
   rate: number;
   photo: string;
+  country: string;
+  province: string;
   reviews: number[];
 }
 export class Experience implements IExperience {
@@ -14,6 +16,8 @@ export class Experience implements IExperience {
   type: string;
   rate: number;
   photo: string;
+  country: string;
+  province: string;
   reviews: number[];
 
   constructor(o?: IExperience) {
