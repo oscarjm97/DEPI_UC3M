@@ -25,6 +25,11 @@ body {
   background-repeat: no-repeat, repeat;
   background-image: url("/assets/img/paper_plane_takeoff.jpg");
 }
+@media(max-width: 1024px) {
+  .bg-body {
+    background-size: inherit;
+  }
+}
 
 *[color="accent"] {
   background-color: $secondary-color !important;
