@@ -19,6 +19,12 @@ body {
 .text-style {
   font-family: 'Sofia';
 }
+@media(max-width: 768px) {
+  .text-style {
+      display: flex;
+      justify-content: center;
+  }
+}
 
 .bg-body {
   background-size: cover;
