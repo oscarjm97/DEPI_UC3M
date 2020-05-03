@@ -1,6 +1,6 @@
 <div class="row-flex">
     <mat-card class="box">
-        <mat-card-title class="header-box">Sign up</mat-card-title>
+        <mat-card-title class="header-box">Registro</mat-card-title>
         <mat-card-content>
             <form class="form-row" [formGroup]="signupForm" novalidate (ngSubmit)="onSubmit(signupForm.value)">
                 <p>
@@ -10,8 +10,8 @@
                             {{validation.message}}</mat-error>
                     </ng-container>
                     <mat-form-field appearance="outline" class="example-full-width">
-                        <mat-label>Name</mat-label>
-                        <input matInput placeholder="Insert your name" formControlName="name">
+                        <mat-label>Nombre</mat-label>
+                        <input matInput placeholder="Ingrese su nombre" formControlName="name">
                     </mat-form-field>
                 </p>
                 <p>
@@ -21,8 +21,8 @@
                             {{validation.message}}</mat-error>
                     </ng-container>
                     <mat-form-field appearance="outline" class="example-full-width">
-                        <mat-label>Surname</mat-label>
-                        <input matInput placeholder="Insert your surname" formControlName="surname">
+                        <mat-label>Apellidos</mat-label>
+                        <input matInput placeholder="Ingrese sus apellidos" formControlName="surname">
                     </mat-form-field>
                 </p>
                 <p style="flex: 1 100%;">
@@ -33,7 +33,7 @@
                     </ng-container>
                     <mat-form-field appearance="outline">
                         <mat-label>E-Mail</mat-label>
-                        <input matInput type="email" placeholder="pat@example.com" formControlName="email">
+                        <input matInput type="email" placeholder="example@domain.com" formControlName="email">
                     </mat-form-field>
                 </p>
                 <p>
@@ -43,8 +43,8 @@
                             {{validation.message}}</mat-error>
                     </ng-container>
                     <mat-form-field appearance="outline" class="example-full-width">
-                        <mat-label>User</mat-label>
-                        <input matInput placeholder="Insert your user" formControlName="userID">
+                        <mat-label>Usuario</mat-label>
+                        <input matInput placeholder="Ingrese su nombre de usuario" formControlName="userID">
                     </mat-form-field>
                 </p>
                 <p>
@@ -54,8 +54,8 @@
                             {{validation.message}}</mat-error>
                     </ng-container>
                     <mat-form-field appearance="outline">
-                        <mat-label>Password</mat-label>
-                        <input matInput [type]="hide ? 'password' : 'text'" placeholder="Insert your password"
+                        <mat-label>Contraseña</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" placeholder="Ingrese su contraseña"
                             formControlName="password">
                         <button mat-icon-button matSuffix type="button" (click)="hide = !hide"
                             [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
@@ -70,8 +70,8 @@
                             {{validation.message}}</mat-error>
                     </ng-container>
                     <mat-radio-group formControlName="rol">
-                        <mat-radio-button value="turist">Turist</mat-radio-button>
-                        <mat-radio-button value="adventurer">Adventurer</mat-radio-button>
+                        <mat-radio-button value="Turista">Turista</mat-radio-button>
+                        <mat-radio-button value="Aventurero">Aventurero</mat-radio-button>
                     </mat-radio-group>
                 </p>
                 <button class="btn-primary" mat-raised-button color="accent" type="button"

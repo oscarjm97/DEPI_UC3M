@@ -13,8 +13,8 @@
               {{validation.message}}</mat-error>
           </ng-container>
           <mat-form-field appearance="outline" class="example-full-width">
-            <mat-label>User</mat-label>
-            <input matInput placeholder="Insert your user" formControlName="userID">
+            <mat-label>Usuario</mat-label>
+            <input matInput placeholder="Ingrese su usuario" formControlName="userID">
           </mat-form-field>
         </p>
         <p>
@@ -24,8 +24,8 @@
               {{validation.message}}</mat-error>
           </ng-container>
           <mat-form-field appearance="outline">
-            <mat-label>Password</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'" placeholder="Insert your password"
+            <mat-label>Contraseña</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" placeholder="Ingrese su contraseña"
               formControlName="password">
             <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'"
               [attr.aria-pressed]="hide">
@@ -33,9 +33,15 @@
             </button>
           </mat-form-field>
         </p>
+<<<<<<< HEAD
         <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Log In</button>
         <p class="black">Not registered yet?</p>
         <button mat-raised-button color="accent" type="button" routerLink="/signup">Sign Up</button>
+=======
+        <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Acceder</button>
+        <p>No te has registrado aún?</p>
+        <button mat-raised-button color="accent" type="button" routerLink="/signup">Registrarse</button>
+>>>>>>> 79100b29c40c4b06f4aa4e7e007338b601cd341f
       </form>
     </mat-card-content>
   </mat-card>
