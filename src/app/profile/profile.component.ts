@@ -38,11 +38,10 @@ export class ProfileComponent implements OnInit {
   }
 
   getPoint(milesID: string) {
-    this.userMiles = this.achievementService.getPointByMilestone(
+    return this.achievementService.getPointByMilestone(
       this.user,
       milesID
     );
-    return this.userMiles;
   }
 
   getPorcent(userMiles: number, miles: number): number {

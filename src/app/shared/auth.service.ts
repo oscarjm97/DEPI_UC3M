@@ -16,7 +16,7 @@ import { AchievementService } from "./../services/achievement/achievement.servic
 })
 export class AuthService {
   defaultPhoto: string =
-    "https://lh3.googleusercontent.com/proxy/hg6kW3nw0xWyAnBBBU_YfERQ58vfZNG78mxzGcFHcFLQsH2LFAnO8o_fvy1qSJZo7Rw6P4HKzvkIom9z65b9OVxal0vk1LAaHWE6fND66s_jQz6m44iru0_gm4B4tPcGAM9eL5B5uA";
+    "https://www.kindpng.com/picc/m/78-785827_user-profile-avatar-login-account-male-user-icon.png";
   user: any;
   private afs: AngularFirestoreCollection<User>;
 

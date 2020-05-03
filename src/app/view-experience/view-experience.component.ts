@@ -8,7 +8,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./view-experience.component.scss"],
 })
 export class ViewExperienceComponent implements OnInit {
-  private id: string;
+  public id: string;
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {
