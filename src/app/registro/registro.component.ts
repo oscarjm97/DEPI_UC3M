@@ -17,12 +17,12 @@ export class RegistroComponent implements OnInit, OnDestroy {
   hide: boolean;
   signupForm: FormGroup;
   validation_messages = {
-    name: [{ type: "required", message: "This field is required." }],
-    surname: [{ type: "required", message: "This field is required." }],
-    email: [{ type: "required", message: "This field is required." }],
-    userID: [{ type: "required", message: "This field is required." }],
-    password: [{ type: "required", message: "This field is required." }],
-    rol: [{ type: "required", message: "Choose a type of user" }],
+    name: [{ type: "required", message: "Este campo es obligatorio." }],
+    surname: [{ type: "required", message: "Este campo es obligatorio." }],
+    email: [{ type: "required", message: "Este campo es obligatorio." }],
+    userID: [{ type: "required", message: "Este campo es obligatorio." }],
+    password: [{ type: "required", message: "Este campo es obligatorio." }],
+    rol: [{ type: "required", message: "Seleccione un tipo de usuario" }],
   };
   userLogged: User;
 

@@ -18,11 +18,13 @@
 .row-flex-milestones {
   display: flex;
   flex-direction: row;
+  flex-flow: row wrap;
 }
 
 .row-flex-milestones>* {
-  flex: 1;
+  //flex: 1;
   margin: 2%;
+  flex: 1 0 calc(33.333% - 20px);
 }
 
 .img-profile {

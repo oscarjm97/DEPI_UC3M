@@ -12,6 +12,7 @@ export class IUser {
   rol: string;
   description: string;
   photo: string;
+  milestones: Achievement[];
 }
 
 export class User implements IUser {
@@ -24,6 +25,7 @@ export class User implements IUser {
   rol: string;
   description: string;
   photo: string;
+  milestones: Achievement[];
   //experiences:Experience[];
   //achievements:Achievement[];
   //reviews:Review[];

@@ -1,5 +1,5 @@
-export interface Achievement{
-    id:number;
-    name:string;
-    points:number;
+export interface Achievement {
+  id: string;
+  name: string;
+  points: number;
 }

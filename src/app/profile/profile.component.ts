@@ -3,7 +3,6 @@ import { User } from "../model/User";
 import { AchievementService } from "./../services/achievement/achievement.service";
 import { Achievement } from "./../model/Achievement";
 import { Subscription } from "rxjs";
-import { FirestoreService } from "./../services/firestore/firestore.service";
 
 @Component({
   selector: "app-profile",
@@ -12,23 +11,41 @@ import { FirestoreService } from "./../services/firestore/firestore.service";
 })
 export class ProfileComponent implements OnInit {
   user: User;
+  public userMiles: number;
+  public totalPoints: number;
   public milestones: Achievement[];
   public s_milestones: Subscription;
 
-  constructor(private firestore: FirestoreService) {
+  constructor(private achievementService: AchievementService) {
     this.user = new User();
+    this.userMiles = 0;
     this.milestones = [];
+    this.totalPoints = 0;
   }
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem("user"));
 
-    this.s_milestones = this.firestore.getAchievements().subscribe((data) => {
+    this.s_milestones = this.achievementService.getAll().subscribe((data) => {
       this.milestones = data;
     });
+
+    this.totalPoints = this.achievementService.getUserTotalPoints(this.user);
   }
 
   ngOnDestroy() {
     this.s_milestones.unsubscribe();
+  }
+
+  getPoint(milesID: string) {
+    this.userMiles = this.achievementService.getPointByMilestone(
+      this.user,
+      milesID
+    );
+    return this.userMiles;
+  }
+
+  getPorcent(userMiles: number, miles: number): number {
+    return (userMiles / miles) * 100;
   }
 }
