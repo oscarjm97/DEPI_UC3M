@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "signup", component: RegistroComponent },
   {
-    path: "",
+    path: "to",
     component: MainNavComponent,
     children: [
       { path: "index", component: IndexturistaComponent },
@@ -31,4 +31,4 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: [],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
