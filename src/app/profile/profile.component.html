@@ -29,20 +29,20 @@
         </div>
     </div>
     <br>
-    <div>
-        <p>Puntos de experiencia: {{this.totalPoints }} exp</p>
+    <div class="user-info">
+        <div class="points-role">Puntos de experiencia: {{this.totalPoints }} exp</div>
         <!--{{user.points}}-->
-        <p>Perfil: {{user.rol}}</p>
+        <div class="points-role">Perfil: {{user.rol}}</div>
     </div>
     <div class="row-flex-milestones">
-        <p *ngFor='let milestone of this.milestones'>
+        <div *ngFor='let milestone of this.milestones'>
             {{milestone.name}} ({{this.getPoint(milestone.id)}}/{{milestone.points}})
             <mat-progress-bar mode="determinate" value="{{this.getPorcent(this.userMiles, milestone.points)}}">
             </mat-progress-bar>
-        </p>
+        </div>
     </div>
     <br>
-    <div>
+    <div class="experiences-margin">
         <app-experience></app-experience>
     </div>
 </div>
