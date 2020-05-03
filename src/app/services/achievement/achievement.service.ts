@@ -11,7 +11,7 @@ import {
 })
 export class AchievementService {
   achievement: any;
-  private afs: AngularFirestoreCollection<Achievement>;
+  public afs: AngularFirestoreCollection<Achievement>;
 
   constructor(private firestore: AngularFirestore) {
     this.afs = this.firestore.collection("achievement");
@@ -24,5 +24,15 @@ export class AchievementService {
 
   public getTotalPoints() {
     const total = 0;
+  }
+
+  public getById(archID: string): Promise<Achievement> {
+    return this.afs
+      .doc(archID)
+      .get()
+      .toPromise()
+      .then((r) => {
+        return r.data() as Achievement;
+      });
   }
 }

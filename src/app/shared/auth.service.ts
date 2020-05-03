@@ -13,6 +13,8 @@ import { Observable } from "rxjs";
   providedIn: "root",
 })
 export class AuthService {
+  defaultPhoto: string =
+    "https://lh3.googleusercontent.com/proxy/hg6kW3nw0xWyAnBBBU_YfERQ58vfZNG78mxzGcFHcFLQsH2LFAnO8o_fvy1qSJZo7Rw6P4HKzvkIom9z65b9OVxal0vk1LAaHWE6fND66s_jQz6m44iru0_gm4B4tPcGAM9eL5B5uA";
   user: any;
   private afs: AngularFirestoreCollection<User>;
 
@@ -47,6 +49,7 @@ export class AuthService {
   }
 
   public createUser(user: IUser): Promise<string> {
+    user.photo = this.defaultPhoto;
     return this.afs
       .doc(user.userID)
       .set({ ...user })
@@ -67,7 +70,7 @@ export class AuthService {
       if (userLogged) {
         this.user = userLogged;
         localStorage.setItem("user", JSON.stringify(this.user));
-        this.router.navigate(["index"]);
+        this.router.navigate(["to/index"]);
       } else {
         localStorage.setItem("user", null);
       }

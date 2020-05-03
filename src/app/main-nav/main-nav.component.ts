@@ -41,7 +41,7 @@ export class MainNavComponent {
   }
 
   isInIndex(): boolean {
-    if (this.router.url.valueOf() == "/index") {
+    if (this.router.url.valueOf() == "/to/index") {
       return true;
     } else {
       return false;

@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "signup", component: RegistroComponent },
   {
-    path: "",
+    path: "to",
     component: MainNavComponent,
     children: [
       { path: "index", component: IndexturistaComponent },
