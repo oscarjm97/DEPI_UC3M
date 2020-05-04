@@ -62,7 +62,7 @@
     </mat-toolbar>
 
     <div class="filter-dropdown" id="filter-component">
-      <app-filter></app-filter>
+      <app-filter (filterSelection)='getFilter($event)'></app-filter>
     </div>
     <!-- Add Content Here -->
     <ng-content></ng-content>

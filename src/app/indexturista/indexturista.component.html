@@ -1,5 +1,12 @@
 <div>
     <h1 class="text-style">Publicaciones</h1>
+    <div *ngIf='this.filter != ""'>
+        <mat-chip-list>
+            <mat-chip [removable]="removable" (removed)="remove()">{{this.filter}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+        </mat-chip-list>
+    </div>
     <mat-card *ngFor="let exp of getExperiences()">
         <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>

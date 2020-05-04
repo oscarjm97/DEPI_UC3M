@@ -10,6 +10,8 @@ import { MainNavComponent } from "../main-nav/main-nav.component";
   styleUrls: ["./indexturista.component.scss"],
 })
 export class IndexturistaComponent implements OnInit {
+  removable = true;
+  filter: string = "";
   public experiences: Experience[];
   public s_experiences: Subscription;
   public arrayRate: number[];
@@ -33,21 +35,44 @@ export class IndexturistaComponent implements OnInit {
   }
 
   public getExperiences() {
+    this.filter = this.navbar.filterSelect;
     if (this.navbar.searchForm != "") {
-      return this.experiences.filter(
-        (exp) =>
-          exp.name
-            .toUpperCase()
-            .includes(this.navbar.searchForm.toUpperCase()) ||
-          exp.country
-            .toUpperCase()
-            .includes(this.navbar.searchForm.toUpperCase()) ||
-          exp.province
-            .toUpperCase()
-            .includes(this.navbar.searchForm.toUpperCase())
-      );
+      if (this.filter != "") {
+        return this.experiences.filter(
+          (exp) =>
+            (exp.name
+              .toUpperCase()
+              .includes(this.navbar.searchForm.toUpperCase()) ||
+              exp.country
+                .toUpperCase()
+                .includes(this.navbar.searchForm.toUpperCase()) ||
+              exp.province
+                .toUpperCase()
+                .includes(this.navbar.searchForm.toUpperCase())) &&
+            exp.type.toUpperCase().startsWith(this.filter.toUpperCase())
+        );
+      } else {
+        return this.experiences.filter(
+          (exp) =>
+            exp.name
+              .toUpperCase()
+              .includes(this.navbar.searchForm.toUpperCase()) ||
+            exp.country
+              .toUpperCase()
+              .includes(this.navbar.searchForm.toUpperCase()) ||
+            exp.province
+              .toUpperCase()
+              .includes(this.navbar.searchForm.toUpperCase())
+        );
+      }
     } else {
-      return this.experiences;
+      if (this.filter != "") {
+        return this.experiences.filter((exp) =>
+          exp.name.toUpperCase().startsWith(this.filter.toUpperCase())
+        );
+      } else {
+        return this.experiences;
+      }
     }
   }
 
@@ -57,5 +82,10 @@ export class IndexturistaComponent implements OnInit {
       this.arrayRate.push(index);
     }
     return this.arrayRate;
+  }
+
+  remove(): void {
+    this.navbar.filterSelect = "";
+    this.filter = "";
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 
 export enum TypesExperience {
   naturaleza,
@@ -16,6 +16,8 @@ export enum TypesExperience {
   styleUrls: ["./filter.component.scss"],
 })
 export class FilterComponent implements OnInit {
+  @Output()
+  filterSelection: EventEmitter<string> = new EventEmitter<string>();
   public selectedExperience: string = "";
   typesExperiences = TypesExperience;
 
@@ -25,10 +27,18 @@ export class FilterComponent implements OnInit {
 
   public onSelectExperience(typeExp: TypesExperience) {
     this.selectedExperience = TypesExperience[typeExp];
-    console.log(this.selectedExperience);
+
+    this.filterSelection.emit(this.selectedExperience);
+    this.filterCollapse();
   }
 
-  public onClear() {
-    this.selectedExperience = "";
+  filterCollapse() {
+    var filter = document.getElementById("filter-component");
+    var isActive = filter.classList.contains("active");
+    if (isActive === false) {
+      filter.classList.add("active");
+    } else {
+      filter.classList.remove("active");
+    }
   }
 }

@@ -11,6 +11,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./main-nav.component.scss"],
 })
 export class MainNavComponent {
+  public filterSelect: string = "";
   public searchForm: string = "";
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
@@ -46,5 +47,8 @@ export class MainNavComponent {
     } else {
       return false;
     }
+  }
+  getFilter(event) {
+    this.filterSelect = event;
   }
 }
