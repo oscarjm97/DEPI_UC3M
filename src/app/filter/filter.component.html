@@ -2,11 +2,15 @@
     <form>
         <mat-form-field>
             <mat-label>Precio Min.</mat-label>
-            <input matInput type="number" min="10">
+            <input matInput type="number" min="10" value="10">
+            <span matPrefix>€&nbsp;</span>
+            <span matSuffix>.00</span>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Precio Máx.</mat-label>
             <input matInput type="number" min="100">
+            <span matPrefix>€&nbsp;</span>
+            <span matSuffix>.00</span>
         </mat-form-field>
         <p>Tipo de experiencia:</p>
         <div class="btn-filter">

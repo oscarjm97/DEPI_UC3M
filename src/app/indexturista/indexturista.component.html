@@ -7,6 +7,48 @@
             </mat-chip>
         </mat-chip-list>
     </div>
+    <mat-accordion *ngIf='this.adventur'>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Crear experiencia
+                </mat-panel-title>
+                <mat-panel-description>
+                    Despliegue para comenzar
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <div>
+                <form>
+                    <mat-form-field>
+                        <mat-label>Título</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Lugar</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>País</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Descripción</mat-label>
+                        <input matInput type="textarea" max="500">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Precio</mat-label>
+                        <input matInput type="number" min="1">
+                        <span matPrefix>€&nbsp;</span>
+                        <span matSuffix>.00</span>
+                    </mat-form-field>
+                    <input type="file">
+                    <button mat-raised-button color='primary'>Crear</button>
+                </form>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
     <mat-card *ngFor="let exp of getExperiences()">
         <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>

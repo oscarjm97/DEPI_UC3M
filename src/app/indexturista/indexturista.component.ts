@@ -3,6 +3,7 @@ import { FirestoreService } from "./../services/firestore/firestore.service";
 import { Experience } from "src/app/model/Experience";
 import { Subscription } from "rxjs";
 import { MainNavComponent } from "../main-nav/main-nav.component";
+import { User } from "src/app/model/User";
 
 @Component({
   selector: "app-indexturista",
@@ -10,6 +11,8 @@ import { MainNavComponent } from "../main-nav/main-nav.component";
   styleUrls: ["./indexturista.component.scss"],
 })
 export class IndexturistaComponent implements OnInit {
+  adventur: boolean = false;
+  user: User;
   removable = true;
   filter: string = "";
   public experiences: Experience[];
@@ -22,9 +25,13 @@ export class IndexturistaComponent implements OnInit {
   ) {
     this.experiences = [];
     this.arrayRate = [];
+    this.user = new User();
   }
 
   ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem("user"));
+    this.adventur = this.user.rol.startsWith("aventurero") ? true : false;
+
     this.s_experiences = this.firestore.getExperiences().subscribe((data) => {
       this.experiences = data;
     });

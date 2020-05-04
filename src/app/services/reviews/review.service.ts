@@ -10,6 +10,7 @@ import {
   AngularFirestoreCollection,
   AngularFirestore,
 } from "@angular/fire/firestore";
+import { Experience } from "src/app/model/Experience";
 
 @Injectable({
   providedIn: "root",
@@ -67,6 +68,22 @@ export class ReviewService {
       .then((r) => {
         return r.data() as Review;
       });
+  }
+
+  public getReviewsByUser(user: User) {
+    return this.firestore
+      .collection<Review>("reviews", (ref) =>
+        ref.where("userID", "==", user.userID)
+      )
+      .valueChanges();
+  }
+
+  public getReviewsByExperience(exp: Experience) {
+    return this.firestore
+      .collection<Review>("reviews", (ref) =>
+        ref.where("experienceID", "==", exp.id)
+      )
+      .valueChanges();
   }
 
   /* public getTotalReviewsInExperience(experienceID: string) { } */
