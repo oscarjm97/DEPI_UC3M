@@ -38,7 +38,6 @@ import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 
-import { DialogExampleComponent } from "./dialog-example/dialog-example.component";
 import { ViewExperienceComponent } from "./view-experience/view-experience.component";
 import { ReviewComponent } from "./review/review.component";
 
@@ -52,14 +51,12 @@ import { ReviewComponent } from "./review/review.component";
     FilterComponent,
     ExperienceComponent,
     ProfileComponent,
-    DialogExampleComponent,
     CommentsComponent,
     HelpComponent,
     DatabaseComponent,
     ViewExperienceComponent,
     ReviewComponent,
   ],
-  entryComponents: [DialogExampleComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

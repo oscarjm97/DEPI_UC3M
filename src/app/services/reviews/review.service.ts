@@ -5,7 +5,7 @@ import { AchievementService } from "./../achievement/achievement.service";
 import { Achievement } from "./../../model/Achievement";
 import { AuthService } from "./../../shared/auth.service";
 import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
+import { map, reduce } from "rxjs/operators";
 import {
   AngularFirestoreCollection,
   AngularFirestore,
@@ -33,24 +33,22 @@ export class ReviewService {
     return this.afs.valueChanges();
   }
 
-  public async createReview(
-    review: Review,
-    experienceID: string
-  ): Promise<string> {
+  public async createReview(review: Review, experienceID: string) {
     this.user = JSON.parse(localStorage.getItem("user"));
     review.userID = this.user.userID;
     review.experienceID = experienceID;
 
     await this.assignMilestone(this.user);
 
-    return new Promise<any>((resolve, reject) => {
+    return this.afs.add(review);
+    /* return new Promise<any>((resolve, reject) => {
       this.afs.add(review).then(
         (res) => {
           console.log(res.id);
         },
         (err) => reject(err)
       );
-    });
+    }); */
   }
 
   public async assignMilestone(user: User) {
@@ -85,6 +83,4 @@ export class ReviewService {
       )
       .valueChanges();
   }
-
-  /* public getTotalReviewsInExperience(experienceID: string) { } */
 }
