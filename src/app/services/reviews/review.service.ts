@@ -5,7 +5,7 @@ import { AchievementService } from "./../achievement/achievement.service";
 import { Achievement } from "./../../model/Achievement";
 import { AuthService } from "./../../shared/auth.service";
 import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
+import { map, reduce } from "rxjs/operators";
 import {
   AngularFirestoreCollection,
   AngularFirestore,
@@ -85,6 +85,4 @@ export class ReviewService {
       )
       .valueChanges();
   }
-
-  /* public getTotalReviewsInExperience(experienceID: string) { } */
 }

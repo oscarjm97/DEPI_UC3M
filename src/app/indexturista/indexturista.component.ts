@@ -4,6 +4,8 @@ import { Experience } from "src/app/model/Experience";
 import { Subscription } from "rxjs";
 import { MainNavComponent } from "../main-nav/main-nav.component";
 import { User } from "src/app/model/User";
+import { Review } from "./../model/Review";
+import { ReviewService } from "./../services/reviews/review.service";
 
 @Component({
   selector: "app-indexturista",
@@ -17,13 +19,19 @@ export class IndexturistaComponent implements OnInit {
   filter: string = "";
   public experiences: Experience[];
   public s_experiences: Subscription;
+
+  public reviews: Review[];
+  public s_reviews: Subscription;
+
   public arrayRate: number[];
 
   constructor(
     private firestore: FirestoreService,
-    private navbar: MainNavComponent
+    private navbar: MainNavComponent,
+    private reviewService: ReviewService
   ) {
     this.experiences = [];
+    this.reviews = [];
     this.arrayRate = [];
     this.user = new User();
   }
@@ -34,6 +42,10 @@ export class IndexturistaComponent implements OnInit {
 
     this.s_experiences = this.firestore.getExperiences().subscribe((data) => {
       this.experiences = data;
+    });
+
+    this.s_reviews = this.reviewService.getAll().subscribe((data) => {
+      this.reviews = data;
     });
   }
 
@@ -94,5 +106,9 @@ export class IndexturistaComponent implements OnInit {
   remove(): void {
     this.navbar.filterSelect = "";
     this.filter = "";
+  }
+
+  public getReviewInExperience(expID: string) {
+    return this.reviews.filter((r) => r.experienceID == expID).length;
   }
 }

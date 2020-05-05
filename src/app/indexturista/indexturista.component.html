@@ -67,12 +67,13 @@
                     </p>
                     <p>
                         <button mat-button>
-                            <mat-icon>visibility</mat-icon> 10K reviews
+                            <mat-icon>visibility</mat-icon> {{getReviewInExperience(exp.id)}}
                             <!--{{exp.reviews.length}} -->
                         </button>
                         <mat-icon aria-label="" style="color: yellow;" *ngFor='let number of getRate(exp.rate)'>
                             grade</mat-icon>
-                        <button mat-raised-button color="primary" [routerLink]="['/to/view_experience',1]">Ver</button>
+                        <button mat-raised-button color="primary"
+                            [routerLink]="['/to/view_experience',exp.id]">Ver</button>
                     </p>
             </div>
         </div>

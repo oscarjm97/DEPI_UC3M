@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { User } from "src/app/model/User";
 import { Experience } from "src/app/model/Experience";
+import { map, filter } from "rxjs/operators";
 import {
   AngularFirestoreCollection,
   AngularFirestore,
@@ -22,5 +23,15 @@ export class ExperienceService {
         ref.where("userID", "==", user.userID)
       )
       .valueChanges();
+  }
+
+  public getExperienceById(expID: string): Promise<Experience> {
+    return this.afs
+      .doc(expID)
+      .get()
+      .toPromise()
+      .then((r) => {
+        return r.data() as Experience;
+      });
   }
 }
