@@ -65,7 +65,7 @@
                             grade</mat-icon>
                     </p>
                     <button class="attr" mat-button>
-                        <mat-icon>visibility</mat-icon> 10K reviews
+                        <mat-icon>visibility</mat-icon> {{getReviewInExperience(exp.id)}} reviews
                         <!--{{exp.reviews.length}} -->
                     </button>
                     <p class="attr bold">
@@ -73,21 +73,8 @@
                         <mat-label>{{exp.price}}</mat-label>
                         <span matSuffix>.00</span>
                     </p>
-<<<<<<< HEAD
-                    <button class="attr view-button" mat-raised-button color="primary" [routerLink]="['/to/view_experience',1]">Ver</button>
+                    <button class="attr view-button" mat-raised-button color="primary" [routerLink]="['/to/view_experience',exp.id]">Ver</button>
                 </div>
-=======
-                    <p>
-                        <button mat-button>
-                            <mat-icon>visibility</mat-icon> {{getReviewInExperience(exp.id)}}
-                            <!--{{exp.reviews.length}} -->
-                        </button>
-                        <mat-icon aria-label="" style="color: yellow;" *ngFor='let number of getRate(exp.rate)'>
-                            grade</mat-icon>
-                        <button mat-raised-button color="primary"
-                            [routerLink]="['/to/view_experience',exp.id]">Ver</button>
-                    </p>
->>>>>>> 3edce829dd98804792401cf1522f97b806a9d8fc
             </div>
         </div>
     </mat-card>
