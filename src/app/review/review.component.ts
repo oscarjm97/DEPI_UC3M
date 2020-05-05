@@ -27,11 +27,26 @@ export class ReviewComponent implements OnInit {
   }
 
   async onSubmit(value) {
-    await this.reviewService
-      .createReview(value, this.experienceID)
-      .then((res) => {
-        console.log("Form send sucessfully");
-        this.reviewsForm.reset(); // Borrar los input del formulario
-      });
+    if (this.reviewsForm.valid) {
+      await this.reviewService
+        .createReview(value, this.experienceID)
+        .then((res) => {
+          this.showMessage();
+        });
+
+      this.reviewsForm.reset(); // Borrar los input del formulario
+    }
+  }
+
+  showMessage() {
+    var newSnackbar = document.createElement("div");
+    newSnackbar.classList.add("snackbar");
+    document.querySelector("body").appendChild(newSnackbar);
+
+    newSnackbar.textContent = "Formulario enviado!";
+    newSnackbar.classList.add("active");
+    setTimeout(() => {
+      newSnackbar.classList.remove("active");
+    }, 3000);
   }
 }

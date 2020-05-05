@@ -1,6 +1,6 @@
 <div>
     <h1 class="text-style">Publicaciones</h1>
-    <div *ngIf='this.filter != ""'>
+    <div *ngIf="(this.filter != '')">
         <mat-chip-list>
             <mat-chip [removable]="removable" (removed)="remove()">{{this.filter}}
                 <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
@@ -19,32 +19,32 @@
             </mat-expansion-panel-header>
 
             <div>
-                <form>
+                <form [formGroup]="experienceForm" (ngSubmit)="onSubmit(experienceForm.value)">
                     <mat-form-field>
                         <mat-label>Título</mat-label>
-                        <input matInput>
+                        <input matInput formControlName="name">
                     </mat-form-field>
 
                     <mat-form-field>
                         <mat-label>Lugar</mat-label>
-                        <input matInput>
+                        <input matInput formControlName="province">
                     </mat-form-field>
                     <mat-form-field>
                         <mat-label>País</mat-label>
-                        <input matInput>
+                        <input matInput formControlName="country">
                     </mat-form-field>
                     <mat-form-field>
                         <mat-label>Descripción</mat-label>
-                        <input matInput type="textarea" max="500">
+                        <input matInput type="textarea" max="500" formControlName="description">
                     </mat-form-field>
                     <mat-form-field>
                         <mat-label>Precio</mat-label>
-                        <input matInput type="number" min="1">
+                        <input matInput type="number" min="1" formControlName="price">
                         <span matPrefix>€&nbsp;</span>
                         <span matSuffix>.00</span>
                     </mat-form-field>
-                    <input type="file">
-                    <button mat-raised-button color='primary'>Crear</button>
+                    <input type="file" formControlName="photo">
+                    <button mat-raised-button color='primary' type="submit" id="createExperience">Crear</button>
                 </form>
             </div>
         </mat-expansion-panel>

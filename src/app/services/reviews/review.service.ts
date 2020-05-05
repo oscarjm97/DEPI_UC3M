@@ -33,24 +33,22 @@ export class ReviewService {
     return this.afs.valueChanges();
   }
 
-  public async createReview(
-    review: Review,
-    experienceID: string
-  ): Promise<string> {
+  public async createReview(review: Review, experienceID: string) {
     this.user = JSON.parse(localStorage.getItem("user"));
     review.userID = this.user.userID;
     review.experienceID = experienceID;
 
     await this.assignMilestone(this.user);
 
-    return new Promise<any>((resolve, reject) => {
+    return this.afs.add(review);
+    /* return new Promise<any>((resolve, reject) => {
       this.afs.add(review).then(
         (res) => {
           console.log(res.id);
         },
         (err) => reject(err)
       );
-    });
+    }); */
   }
 
   public async assignMilestone(user: User) {

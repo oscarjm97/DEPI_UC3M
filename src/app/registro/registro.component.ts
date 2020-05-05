@@ -55,7 +55,7 @@ export class RegistroComponent implements OnInit, OnDestroy {
     const exists = await this.authService.checkExistUser(value.userID);
     if (!exists) {
       await this.authService.createUser(value).then((res) => {
-        console.log("The user has been created successfully.");
+        this.showMessage();
       });
       this.userLogged = await this.authService.getUserById(value.userID);
       this.authService.SignIn(this.userLogged);
@@ -63,5 +63,17 @@ export class RegistroComponent implements OnInit, OnDestroy {
       console.log("This user already exist.");
       this.signupForm.reset(); // Borrar los input del formulario
     }
+  }
+
+  showMessage() {
+    var newSnackbar = document.createElement("div");
+    newSnackbar.classList.add("snackbar");
+    document.querySelector("body").appendChild(newSnackbar);
+
+    newSnackbar.textContent = "Usuario creado!";
+    newSnackbar.classList.add("active");
+    setTimeout(() => {
+      newSnackbar.classList.remove("active");
+    }, 3000);
   }
 }
