@@ -11,3 +11,17 @@
         justify-content: center;
     }
 }
+
+.experience-title {
+    flex-grow: 0;
+}
+
+.experience-link {
+    text-decoration: underline;
+    color: black;
+    font-weight: 500;
+}
+
+.reviews {
+    align-items: center;
+}

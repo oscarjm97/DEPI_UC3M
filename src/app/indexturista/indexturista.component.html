@@ -58,22 +58,23 @@
         <div class="card-content-flex">
             <img src={{exp.photo}} alt="Photo">
             <div>
-                <p>
-                    {{exp.description | slice:0:250}}...
-                    <p>
+                {{exp.description | slice:0:250}}...
+                <div class="experience-attr">
+                    <p class="attr stars">
+                        <mat-icon aria-label="" style="color: yellow;" *ngFor='let number of getRate(exp.rate)'>
+                            grade</mat-icon>
+                    </p>
+                    <button class="attr" mat-button>
+                        <mat-icon>visibility</mat-icon> 10K reviews
+                        <!--{{exp.reviews.length}} -->
+                    </button>
+                    <p class="attr bold">
                         <span matPrefix>€&nbsp;</span>
                         <mat-label>{{exp.price}}</mat-label>
                         <span matSuffix>.00</span>
                     </p>
-                    <p>
-                        <button mat-button>
-                            <mat-icon>visibility</mat-icon> 10K reviews
-                            <!--{{exp.reviews.length}} -->
-                        </button>
-                        <mat-icon aria-label="" style="color: yellow;" *ngFor='let number of getRate(exp.rate)'>
-                            grade</mat-icon>
-                        <button mat-raised-button color="primary" [routerLink]="['/to/view_experience',1]">Ver</button>
-                    </p>
+                    <button class="attr view-button" mat-raised-button color="primary" [routerLink]="['/to/view_experience',1]">Ver</button>
+                </div>
             </div>
         </div>
     </mat-card>

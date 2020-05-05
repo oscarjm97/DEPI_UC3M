@@ -7,10 +7,10 @@
             <mat-accordion *ngFor='let exp of experiences'>
                 <mat-expansion-panel>
                     <mat-expansion-panel-header>
-                        <mat-panel-title>
-                            <a [routerLink]="['/to/view_experience',1]"> {{exp.name}}</a>
+                        <mat-panel-title class="experience-title">
+                            <a class="experience-link" [routerLink]="['/to/view_experience',1]"> {{exp.name}}</a>
                         </mat-panel-title>
-                        <mat-panel-description>
+                        <mat-panel-description class="reviews">
                             <mat-icon>visibility</mat-icon> 10k reviews
                         </mat-panel-description>
                     </mat-expansion-panel-header>
