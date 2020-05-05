@@ -13,12 +13,27 @@ import {
   FormControl,
 } from "@angular/forms";
 
+interface Types {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: "app-indexturista",
   templateUrl: "./indexturista.component.html",
   styleUrls: ["./indexturista.component.scss"],
 })
 export class IndexturistaComponent implements OnInit {
+  types: Types[] = [
+    {value: 'naturaleza', viewValue: 'Naturaleza'},
+    {value: 'bar', viewValue: 'Bar'},
+    {value: 'gastronomia', viewValue: 'Gastronomía'},
+    {value: 'playa', viewValue: 'Playa'},
+    {value: 'deportes', viewValue: 'Deportes'},
+    {value: 'cultura', viewValue: 'Cultura'},
+    {value: 'musica', viewValue: 'Música'}
+  ];
+
   experienceForm: FormGroup;
   adventur: boolean = false;
   user: User;
@@ -47,8 +62,9 @@ export class IndexturistaComponent implements OnInit {
       name: ["", Validators.required],
       province: ["", Validators.required],
       country: ["", Validators.required],
-      description: ["", Validators.required],
       price: ["", Validators.required],
+      type: ["", Validators.required],
+      description: ["", Validators.required],
       photo: [""],
     });
   }

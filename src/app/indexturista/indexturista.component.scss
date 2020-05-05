@@ -100,9 +100,36 @@ mat-card-content {
   }
 }
 
+.new-experience {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+@media(min-width: 768px) {  
+  .new-attr {
+    flex: 0 0 calc(50% - 1rem);
+  }
+}
+
+.input-photo {
+  margin-bottom: 0.7rem;
+}
+
 mat-card {
+  margin-top: 1rem;
   margin-bottom: 1.5%;
   border-color: #242B45;
   border-style: solid;
   border-width: 0.06rem;
+}
+
+@media(max-width: 380px) {
+  mat-expansion-panel-header {
+    padding: 0 9px;
+  }
+
+  .new-experience-content {
+    margin-left: -0.9rem;
+  }
 }

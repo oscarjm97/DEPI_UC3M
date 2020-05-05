@@ -3,8 +3,8 @@ import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 export enum TypesExperience {
   naturaleza,
   bar,
-  gastronomica,
-  piscina,
+  gastronomia,
+  playa,
   deportes,
   cultura,
   musica,

@@ -28,6 +28,7 @@ import { MatInputModule } from "@angular/material/input";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatCardModule } from "@angular/material/card";
 import { MatRadioModule } from "@angular/material/radio";
+import { MatSelectModule } from '@angular/material/select';
 import { MatExpansionModule } from "@angular/material/expansion";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatMenuModule } from "@angular/material/menu";
@@ -71,6 +72,7 @@ import { ReviewComponent } from "./review/review.component";
     MatGridListModule,
     MatCardModule,
     MatRadioModule,
+    MatSelectModule,
     MatExpansionModule,
     MatDialogModule,
     MatMenuModule,
@@ -85,4 +87,4 @@ import { ReviewComponent } from "./review/review.component";
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
