@@ -43,10 +43,19 @@ export class ExperienceService {
   }
 
   public async createExperience(exp: Experience, user: User) {
+    const id = this.firestore.createId();
     exp.userID = user.userID;
+    exp.rate = 0;
+    exp.id = id;
+    exp.reviews = [];
     if (exp.photo == null || exp.photo == "") {
       exp.photo = this.defaultPhoto;
     }
-    return this.afs.add(exp);
+    return this.afs
+      .doc(exp.id)
+      .set({ ...exp })
+      .then((r) => {
+        return exp.id;
+      });
   }
 }

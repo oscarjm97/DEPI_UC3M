@@ -38,8 +38,10 @@ export class ViewExperienceComponent implements OnInit {
 
   public getRate(rate) {
     this.arrayRate = [];
-    for (let index = 0; index < rate; index++) {
-      this.arrayRate.push(index);
+    if (rate != null) {
+      for (let index = 0; index < rate; index++) {
+        this.arrayRate.push(index);
+      }
     }
     return this.arrayRate;
   }
