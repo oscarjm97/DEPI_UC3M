@@ -94,4 +94,14 @@ export class AuthService {
   SignOut() {
     this.authFire.signOut();
   }
+
+  checkMilestone(user: User, milesID: string): boolean {
+    let exist = false;
+    user.milestones.map((r) => {
+      if (r.id == milesID) {
+        exist = true;
+      }
+    });
+    return exist;
+  }
 }

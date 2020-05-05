@@ -11,6 +11,7 @@ import {
   AngularFirestore,
 } from "@angular/fire/firestore";
 import { Experience } from "src/app/model/Experience";
+import { ExperienceService } from "./../experience/experience.service";
 
 @Injectable({
   providedIn: "root",
@@ -18,11 +19,13 @@ import { Experience } from "src/app/model/Experience";
 export class ReviewService {
   user: User;
   achievement: Achievement;
+  tempUser: User;
   public afs: AngularFirestoreCollection<Review>;
 
   constructor(
     private firestore: AngularFirestore,
     private achievementService: AchievementService,
+    private experienceservice: ExperienceService,
     private authService: AuthService
   ) {
     this.afs = this.firestore.collection("reviews");
@@ -38,22 +41,27 @@ export class ReviewService {
     review.userID = this.user.userID;
     review.experienceID = experienceID;
 
-    await this.assignMilestone(this.user);
+    if (this.authService.checkMilestone(this.user, "5") == false) {
+      await this.assignMilestone(this.user, "5");
+    }
+
+    this.updateUserAdventur(review.experienceID);
 
     return this.afs.add(review);
-    /* return new Promise<any>((resolve, reject) => {
-      this.afs.add(review).then(
-        (res) => {
-          console.log(res.id);
-        },
-        (err) => reject(err)
-      );
-    }); */
   }
 
-  public async assignMilestone(user: User) {
-    this.achievement = await this.achievementService.getById("5");
-    this.achievement.id = "5";
+  public async updateUserAdventur(expID: string) {
+    const exp = await this.experienceservice.getExperienceById(expID);
+    this.tempUser = await this.authService.getUserById(exp.userID);
+
+    if (this.authService.checkMilestone(this.tempUser, "3") == false) {
+      await this.assignMilestone(this.tempUser, "3");
+    }
+  }
+
+  public async assignMilestone(user: User, code: string) {
+    this.achievement = await this.achievementService.getById(code);
+    this.achievement.id = code;
     user.milestones.push(this.achievement);
     await this.authService.updateUserById(user);
   }
