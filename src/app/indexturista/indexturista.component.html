@@ -1,5 +1,61 @@
 <div>
     <h1 class="text-style">Publicaciones</h1>
+    <div class="chip-filter">
+        <mat-chip-list *ngIf="this.navbar.filterSelect">
+            <mat-chip [removable]="removable" (removed)="remove()">{{this.filter}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+        </mat-chip-list>
+    </div>
+    <mat-accordion *ngIf='this.adventur'>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Crear experiencia
+                </mat-panel-title>
+                <mat-panel-description>
+                    Despliegue para comenzar
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <div class="new-experience-content">
+                <form class="new-experience" [formGroup]="experienceForm" (ngSubmit)="onSubmit(experienceForm.value)">
+                    <mat-form-field class="new-attr">
+                        <mat-label>Título</mat-label>
+                        <input matInput formControlName="name">
+                    </mat-form-field>
+                    <mat-form-field class="new-attr">
+                        <mat-label>Lugar</mat-label>
+                        <input matInput formControlName="province">
+                    </mat-form-field>
+                    <mat-form-field class="new-attr">
+                        <mat-label>País</mat-label>
+                        <input matInput formControlName="country">
+                    </mat-form-field>
+                    <mat-form-field class="new-attr">
+                        <mat-label>Precio</mat-label>
+                        <input matInput type="number" min="1" formControlName="price">
+                        <span matSuffix>€</span>
+                    </mat-form-field>
+                    <mat-form-field class="new-attr">
+                        <mat-label>Tipo</mat-label>
+                        <mat-select formControlName="type">
+                            <mat-option *ngFor="let type of types" [value]="type.value">
+                                {{type.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="new-attr">
+                        <mat-label>Descripción</mat-label>
+                        <textarea matInput type="textarea" max="500" formControlName="description"></textarea>
+                    </mat-form-field>
+                    <input class="input-photo" type="file" formControlName="photo">
+                    <button id="createExperience" mat-raised-button color='primary' type="submit"
+                        [disabled]="!experienceForm.valid">Crear</button>
+                </form>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
     <mat-card *ngFor="let exp of getExperiences()">
         <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
@@ -9,22 +65,29 @@
         <div class="card-content-flex">
             <img src={{exp.photo}} alt="Photo">
             <div>
-                <p>
+                <div class="description">
                     {{exp.description | slice:0:250}}...
-                    <p>
-                        <span matPrefix>€&nbsp;</span>
-                        <mat-label>{{exp.price}}</mat-label>
-                        <span matSuffix>.00</span>
-                    </p>
-                    <p>
-                        <button mat-button>
-                            <mat-icon>visibility</mat-icon> 10K reviews
-                            <!--{{exp.reviews.length}} -->
-                        </button>
+                </div>
+                <div class="experience-attr">
+                    <p class="attr stars">
                         <mat-icon aria-label="" style="color: yellow;" *ngFor='let number of getRate(exp.rate)'>
                             grade</mat-icon>
+<<<<<<< HEAD
                         <button mat-raised-button color="primary" [routerLink]="['/to/view_experience',1]">Ver</button>
+=======
+>>>>>>> develop
                     </p>
+                    <button class="attr" mat-button>
+                        <mat-icon>visibility</mat-icon> {{getReviewInExperience(exp.id)}} reviews
+                        <!--{{exp.reviews.length}} -->
+                    </button>
+                    <p class="attr bold">
+                        <mat-label>{{exp.price}}</mat-label>
+                        <span matSuffix>€</span>
+                    </p>
+                    <button class="attr view-button" mat-raised-button color="primary"
+                        [routerLink]="['/to/view_experience',exp.id]">Ver</button>
+                </div>
             </div>
         </div>
     </mat-card>

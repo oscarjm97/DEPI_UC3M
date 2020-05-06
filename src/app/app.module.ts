@@ -28,16 +28,17 @@ import { MatInputModule } from "@angular/material/input";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatCardModule } from "@angular/material/card";
 import { MatRadioModule } from "@angular/material/radio";
+import { MatSelectModule } from "@angular/material/select";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatMenuModule } from "@angular/material/menu";
-import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatChipsModule } from "@angular/material/chips";
+import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 
-import { DialogExampleComponent } from "./dialog-example/dialog-example.component";
 import { ViewExperienceComponent } from "./view-experience/view-experience.component";
 import { ReviewComponent } from "./review/review.component";
 
@@ -51,14 +52,12 @@ import { ReviewComponent } from "./review/review.component";
     FilterComponent,
     ExperienceComponent,
     ProfileComponent,
-    DialogExampleComponent,
     CommentsComponent,
     HelpComponent,
     DatabaseComponent,
     ViewExperienceComponent,
     ReviewComponent,
   ],
-  entryComponents: [DialogExampleComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -73,9 +72,11 @@ import { ReviewComponent } from "./review/review.component";
     MatGridListModule,
     MatCardModule,
     MatRadioModule,
+    MatSelectModule,
     MatExpansionModule,
     MatDialogModule,
     MatMenuModule,
+    MatChipsModule,
     MatProgressBarModule,
     FormsModule,
     ReactiveFormsModule,

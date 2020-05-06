@@ -1,38 +1,33 @@
 <div>
     <mat-card>
         <mat-card-header class="center">
-            <mat-card-title>Mis Experiencias</mat-card-title>
+            <mat-card-title class="text-style experience-style">Mis Experiencias</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <mat-card>
-                <mat-card-header>
-                    <mat-card-title>Ruta gastronómica manchega</mat-card-title>
-                    <mat-card-subtitle>
-                        <button mat-button (click)='openDialog()'>
-                            <mat-icon>visibility</mat-icon> 10k reviews
-                        </button>
-                    </mat-card-subtitle>
-                </mat-card-header>
-            </mat-card>
-            <mat-card>
-                <mat-card-header>
-                    <mat-card-title>Hitos culturales manchegos</mat-card-title>
-                    <mat-card-subtitle><button mat-button (click)='openDialog()'>
-                            <mat-icon>visibility</mat-icon> 30k reviews
-                        </button>
-                    </mat-card-subtitle>
-                </mat-card-header>
-            </mat-card>
-            <mat-card>
-                <mat-card-header>
-                    <mat-card-title>La Habana, ese gran misterio</mat-card-title>
-                    <mat-card-subtitle>
-                        <button mat-button (click)='openDialog()'>
-                            <mat-icon>visibility</mat-icon> 15k reviews
-                        </button>
-                    </mat-card-subtitle>
-                </mat-card-header>
-            </mat-card>
+            <mat-accordion *ngFor='let exp of this.experiences'>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title class="experience-title">
+                            <a class="experience-link" [routerLink]="['/to/view_experience',exp.id]"> {{exp.name}}</a>
+                        </mat-panel-title>
+                        <mat-panel-description class="reviews">
+                            <mat-icon>visibility</mat-icon> {{getReviewInExperience(exp.id)}} reviews
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+
+                    <!--COMMENTS-->
+                    <mat-card *ngFor='let rev of getReviewExperience(exp)'>
+                        <mat-card-header>
+                            <mat-card-subtitle>{{rev.userID}}</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <p>
+                                {{rev.comment}}
+                            </p>
+                        </mat-card-content>
+                    </mat-card>
+                </mat-expansion-panel>
+            </mat-accordion>
         </mat-card-content>
     </mat-card>
 </div>

@@ -1,5 +1,31 @@
+.experience-style {
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
 @media(max-width: 768px) {
     .center {
         justify-content: center;
     }
+}
+
+mat-expansion-panel {
+    margin: 1rem 0;
+}
+
+.experience-title {
+    flex-grow: 0;
+}
+
+.experience-link {
+    text-decoration: underline;
+    color: black;
+    font-weight: 500;
+}
+
+.reviews {
+    align-items: center;
 }

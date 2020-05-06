@@ -5,6 +5,7 @@ $primary-color: #242B45;
 $secondary-color: #cd5c5c;
 $bg-color: #ffffff;
 $bg-btn: #C49860;
+$success: green;
 
 html,
 body {
@@ -20,11 +21,19 @@ body {
   font-family: 'Sofia';
 }
 
+@media(max-width: 768px) {
+  .text-style {
+    display: flex;
+    justify-content: center;
+  }
+}
+
 .bg-body {
   background-size: cover;
   background-repeat: no-repeat, repeat;
   background-image: url("/assets/img/paper_plane_takeoff.jpg");
 }
+
 @media(max-width: 1024px) {
   .bg-body {
     background-size: inherit;
@@ -37,4 +46,26 @@ body {
 
 *[color="primary"] {
   background-color: $primary-color !important;
+}
+
+/*TEST*/
+.snackbar {
+  width: 200px;
+  padding: 20px;
+  position: fixed;
+  left: 50%;
+  margin-left: -120px;
+  top: 0;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  background: $success;
+  color: white;
+  margin-top: -100%;
+  transition: all 0.2s;
+}
+
+.snackbar.active {
+  margin-top: 0;
+  z-index: 1000;
 }

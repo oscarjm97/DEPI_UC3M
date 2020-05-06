@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     password: [{ type: "required", message: "This field is required." }],
   };
   userLogged: User;
+  message: string;
 
   constructor(
     private renderer: Renderer2,
@@ -33,6 +34,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       password: ["", Validators.required],
     });
     this.userLogged = new User();
+    this.message = "";
   }
 
   ngOnInit() {
@@ -49,15 +51,35 @@ export class LoginComponent implements OnInit, OnDestroy {
     if (exists) {
       this.userLogged = await this.authService.getUserById(value.userID);
       if (this.userLogged.password == value.password) {
+        this.message = "Usuario logueado con éxito!"
+        this.showMessage(true);
         this.authService.SignIn(this.userLogged);
-        console.log("Login sucessful!");
       } else {
-        console.log("The password is not correct.");
-        this.loginForm.reset(); // Borrar los input del formulario
+        this.message = "Contraseña incorrecta!"
+        this.showMessage(false);
+        this.loginForm.reset();
       }
     } else {
-      console.log("The user is not registered.");
-      this.loginForm.reset(); // Borrar los input del formulario
+      this.message = "Usuario no registrado!"
+      this.showMessage(false);
+      this.loginForm.reset();
     }
+  }
+
+  showMessage(green: boolean) {
+    var newSnackbar = document.createElement("div");
+    newSnackbar.classList.add("snackbar");
+    document.querySelector("body").appendChild(newSnackbar);
+
+    newSnackbar.textContent = this.message;
+    if (!green) {
+      newSnackbar.style.backgroundColor = "red";
+    } else {
+      newSnackbar.style.backgroundColor = "green";
+    }
+    newSnackbar.classList.add("active");
+    setTimeout(() => {
+      newSnackbar.classList.remove("active");
+    }, 3000);
   }
 }

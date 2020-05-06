@@ -18,24 +18,60 @@
 .row-flex-milestones {
   display: flex;
   flex-direction: row;
+  flex-flow: row wrap;
+  margin-top: 1rem;
+  margin: 1% 5%;
 }
 
 .row-flex-milestones>* {
-  flex: 1;
+  //flex: 1;
   margin: 2%;
+  flex: 1 0 calc(33.333% - 20px);
 }
 
 .img-profile {
-  max-width: 300px;
-  max-height: 400px;
+  max-width: 305px;
+  max-height: 205px;
   border-color: #C49860;
   border-style: solid;
   border-radius: 50px;
 }
 
+.user-info {
+  display: grid;
+  justify-content: center;
+  margin: 1% 35%;
+  border-color: #C49860;
+  border-style: solid;
+  border-radius: 50px;
+}
+
+.points-role {
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+}
+
 .mat-progress-bar {
   max-height: 20px;
   height: 20px;
+}
+
+.milestones-title {
+  display: flex;
+  font-family: 'Sofia';
+  font-size: 1.5em;
+  margin: 0% 5% -3% 7%;
+}
+
+/*.experiences-margin {
+  margin: -2% 7% 2% 7%;
+}*/
+
+@media(max-width: 1000px) {
+  .user-info {
+    margin: 1% 32%;
+  }
 }
 
 @media(max-width: 768px) {
@@ -57,5 +93,25 @@
   .row-flex-milestones {
     flex-direction: column;
     justify-content: center;
+    margin: 5% 10%;
+  }
+
+  .user-info {
+    margin: 1% 20%;
+  }
+
+  .milestones-title {
+    justify-content: center;
+    margin: 0 0 -8% 0;
+  }
+
+  /*.experiences-margin {
+    margin: auto;
+  }*/
+}
+
+@media(max-width: 492px) {
+  .user-info {
+    margin: 1% 10%;
   }
 }

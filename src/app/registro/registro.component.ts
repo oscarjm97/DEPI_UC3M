@@ -17,14 +17,15 @@ export class RegistroComponent implements OnInit, OnDestroy {
   hide: boolean;
   signupForm: FormGroup;
   validation_messages = {
-    name: [{ type: "required", message: "This field is required." }],
-    surname: [{ type: "required", message: "This field is required." }],
-    email: [{ type: "required", message: "This field is required." }],
-    userID: [{ type: "required", message: "This field is required." }],
-    password: [{ type: "required", message: "This field is required." }],
-    rol: [{ type: "required", message: "Choose a type of user" }],
+    name: [{ type: "required", message: "Este campo es obligatorio." }],
+    surname: [{ type: "required", message: "Este campo es obligatorio." }],
+    email: [{ type: "required", message: "Este campo es obligatorio." }],
+    userID: [{ type: "required", message: "Este campo es obligatorio." }],
+    password: [{ type: "required", message: "Este campo es obligatorio." }],
+    rol: [{ type: "required", message: "Seleccione un tipo de usuario" }],
   };
   userLogged: User;
+  message: string;
 
   constructor(
     private renderer: Renderer2,
@@ -40,6 +41,7 @@ export class RegistroComponent implements OnInit, OnDestroy {
       rol: ["", Validators.required],
     });
     this.userLogged = new User();
+    this.message = "";
   }
 
   ngOnInit() {
@@ -54,14 +56,33 @@ export class RegistroComponent implements OnInit, OnDestroy {
   async onSubmit(value) {
     const exists = await this.authService.checkExistUser(value.userID);
     if (!exists) {
+      this.message = "Usuario creado con éxito!"
       await this.authService.createUser(value).then((res) => {
-        console.log("The user has been created successfully.");
+        this.showMessage(true);
       });
       this.userLogged = await this.authService.getUserById(value.userID);
       this.authService.SignIn(this.userLogged);
     } else {
-      console.log("This user already exist.");
+      this.message = "Usuario ya existente!"
+      this.showMessage(false);
       this.signupForm.reset(); // Borrar los input del formulario
     }
+  }
+
+  showMessage(green: boolean) {
+    var newSnackbar = document.createElement("div");
+    newSnackbar.classList.add("snackbar");
+    document.querySelector("body").appendChild(newSnackbar);
+
+    newSnackbar.textContent = this.message;
+    if (!green) {
+      newSnackbar.style.backgroundColor = "red";
+    } else {
+      newSnackbar.style.backgroundColor = "green";
+    }
+    newSnackbar.classList.add("active");
+    setTimeout(() => {
+      newSnackbar.classList.remove("active");
+    }, 3000);
   }
 }

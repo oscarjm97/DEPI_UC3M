@@ -1,3 +1,19 @@
 <div>
-    <button mat-mini-fab>+</button>
+    <form [formGroup]="reviewsForm" (ngSubmit)="onSubmit(reviewsForm.value)">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>Valorar experiencia</mat-card-title>
+                <mat-card-subtitle>Deje aquí sus comentarios</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-form-field appearance="outline">
+                    <mat-label>Comentarios</mat-label>
+                    <textarea matInput formControlName="comment"></textarea>
+                </mat-form-field>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button type="submit">Enviar</button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
 </div>

@@ -1,6 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { MatDialog } from "@angular/material";
-import { DialogExampleComponent } from "./../dialog-example/dialog-example.component";
+import { ReviewService } from "./../services/reviews/review.service";
+import { Subscription } from "rxjs";
+import { Review } from "./../model/Review";
+import { User } from "src/app/model/User";
+import { Experience } from "src/app/model/Experience";
+import { ExperienceService } from "./../services/experience/experience.service";
 
 @Component({
   selector: "app-experience",
@@ -8,11 +12,46 @@ import { DialogExampleComponent } from "./../dialog-example/dialog-example.compo
   styleUrls: ["./experience.component.scss"],
 })
 export class ExperienceComponent implements OnInit {
-  constructor(public dialog: MatDialog) {}
+  user: User;
+  public experiences: Experience[];
+  public s_experiences: Subscription;
 
-  openDialog() {
-    this.dialog.open(DialogExampleComponent);
+  public reviews: Review[];
+  public s_reviews: Subscription;
+
+  constructor(
+    private experienceService: ExperienceService,
+    private reviewService: ReviewService
+  ) {
+    this.experiences = [];
+    this.reviews = [];
+    this.user = new User();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem("user"));
+
+    this.s_experiences = this.experienceService
+      .getExperiencesByUser(this.user)
+      .subscribe((data) => {
+        this.experiences = data;
+      });
+
+    this.s_reviews = this.reviewService.getAll().subscribe((data) => {
+      this.reviews = data;
+    });
+  }
+
+  ngOnDestroy() {
+    this.s_experiences.unsubscribe();
+    this.s_reviews.unsubscribe();
+  }
+
+  public getReviewExperience(exp: Experience) {
+    return this.reviews.filter((rev) => rev.experienceID == exp.id);
+  }
+
+  public getReviewInExperience(expID: string) {
+    return this.reviews.filter((r) => r.experienceID == expID).length;
+  }
 }

@@ -27,7 +27,7 @@
 
 .box {
   flex: 1;
-  background-color: #ffffcc;
+  background-color: #ffffe6;
   max-width: 300px;
   height: 400px;
   border-radius: 1rem;
@@ -57,17 +57,13 @@ button {
   color: white;
 }
 
-input {
+input, .mat-icon-button, .black {
   color: black;
 }
 
 .mat-form-field {
   width: 100%;
   min-width: 300px;
-}
-
-.mat-icon-button {
-  color: black;
 }
 
 mat-card-title,

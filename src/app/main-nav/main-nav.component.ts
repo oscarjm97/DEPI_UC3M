@@ -11,6 +11,9 @@ import { Router } from "@angular/router";
   styleUrls: ["./main-nav.component.scss"],
 })
 export class MainNavComponent {
+  public minPriceSelect: number;
+  public maxPriceSelect: number;
+  public filterSelect: string = "";
   public searchForm: string = "";
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
@@ -46,5 +49,16 @@ export class MainNavComponent {
     } else {
       return false;
     }
+  }
+  getFilter(event) {
+    this.filterSelect = event;
+  }
+
+  getMinPrice(event) {
+    this.minPriceSelect = event;
+  }
+
+  getMaxPrice(event) {
+    this.maxPriceSelect = event;
   }
 }

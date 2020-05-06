@@ -8,18 +8,23 @@ import {
 } from "@angular/fire/firestore";
 import { User, IUser } from "../model/User";
 import { Observable } from "rxjs";
+import { Achievement } from "./../model/Achievement";
+import { AchievementService } from "./../services/achievement/achievement.service";
 
 @Injectable({
   providedIn: "root",
 })
 export class AuthService {
+  defaultPhoto: string =
+    "https://www.kindpng.com/picc/m/78-785827_user-profile-avatar-login-account-male-user-icon.png";
   user: any;
   private afs: AngularFirestoreCollection<User>;
 
   constructor(
     private authFire: AngularFireAuth,
     public router: Router,
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
+    private achievementService: AchievementService
   ) {
     this.afs = this.firestore.collection("users");
     this.user = this.authFire.authState;
@@ -46,7 +51,9 @@ export class AuthService {
       .valueChanges();
   }
 
-  public createUser(user: IUser): Promise<string> {
+  public async createUser(user: IUser): Promise<string> {
+    user.photo = this.defaultPhoto;
+    user.milestones = [];
     return this.afs
       .doc(user.userID)
       .set({ ...user })
@@ -59,6 +66,17 @@ export class AuthService {
     const userInDB = await this.getUserById(userID);
     if (userInDB != null) return true;
     else return false;
+  }
+
+  public updateUserById(user: User) {
+    return this.afs.doc(user.userID).update(user);
+  }
+
+  public async uploadImage(user: User, image: File): Promise<boolean> {
+    const ach = await this.achievementService.getById("1");
+    //user.milestones.push();
+
+    return true;
   }
 
   SignIn(userLogged: User) {
@@ -75,5 +93,15 @@ export class AuthService {
   }
   SignOut() {
     this.authFire.signOut();
+  }
+
+  checkMilestone(user: User, milesID: string): boolean {
+    let exist = false;
+    user.milestones.map((r) => {
+      if (r.id == milesID) {
+        exist = true;
+      }
+    });
+    return exist;
   }
 }
