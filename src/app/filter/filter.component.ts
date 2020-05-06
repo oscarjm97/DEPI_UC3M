@@ -18,7 +18,14 @@ export enum TypesExperience {
 export class FilterComponent implements OnInit {
   @Output()
   filterSelection: EventEmitter<string> = new EventEmitter<string>();
+  @Output()
+  priceMinEvent: EventEmitter<number> = new EventEmitter<number>();
+  @Output()
+  priceMaxEvent: EventEmitter<number> = new EventEmitter<number>();
+
   public selectedExperience: string = "";
+  public minPrice: number;
+  public maxPrice: number;
   typesExperiences = TypesExperience;
 
   constructor() {}
@@ -30,6 +37,16 @@ export class FilterComponent implements OnInit {
 
     this.filterSelection.emit(this.selectedExperience);
     this.filterCollapse();
+  }
+
+  public getMinPriceEvent(price) {
+    this.minPrice = price;
+    this.priceMinEvent.emit(this.minPrice);
+  }
+
+  public getMaxPriceEvent(price) {
+    this.maxPrice = price;
+    this.priceMaxEvent.emit(this.maxPrice);
   }
 
   filterCollapse() {
