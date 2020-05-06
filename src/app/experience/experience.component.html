@@ -1,5 +1,5 @@
 <div>
-    <mat-card>
+    <mat-card id="card-container">
         <mat-card-header class="center">
             <mat-card-title class="text-style experience-style">Mis Experiencias</mat-card-title>
         </mat-card-header>
@@ -11,12 +11,16 @@
                             <a class="experience-link" [routerLink]="['/to/view_experience',exp.id]"> {{exp.name}}</a>
                         </mat-panel-title>
                         <mat-panel-description class="reviews">
-                            <mat-icon>visibility</mat-icon> {{getReviewInExperience(exp.id)}} reviews
+                            Reviews
                         </mat-panel-description>
                     </mat-expansion-panel-header>
-
+                    <div>
+                        <button mat-button>
+                            <mat-icon>visibility</mat-icon> {{getReviewInExperience(exp.id)}} reviews
+                        </button>
+                    </div>
                     <!--COMMENTS-->
-                    <mat-card *ngFor='let rev of getReviewExperience(exp)'>
+                    <mat-card *ngFor='let rev of getReviewExperience(exp)' class="list-reviews">
                         <mat-card-header>
                             <mat-card-subtitle>{{rev.userID}}</mat-card-subtitle>
                         </mat-card-header>

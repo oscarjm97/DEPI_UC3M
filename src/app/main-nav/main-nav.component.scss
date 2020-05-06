@@ -70,6 +70,10 @@ span>a {
   width: inherit;
 }
 
+#filter-btn:disabled {
+  background-color: transparent !important;
+}
+
 @media (min-width: 768px) {
   .sidenav {
     display: none;

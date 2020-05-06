@@ -11,7 +11,6 @@ import { MainNavComponent } from "./main-nav/main-nav.component";
 import { FilterComponent } from "./filter/filter.component";
 import { ExperienceComponent } from "./experience/experience.component";
 import { ProfileComponent } from "./profile/profile.component";
-import { CommentsComponent } from "./comments/comments.component";
 import { HelpComponent } from "./help/help.component";
 import { environment } from "../environments/environment";
 import { DatabaseComponent } from "./database/database.component";
@@ -52,7 +51,6 @@ import { ReviewComponent } from "./review/review.component";
     FilterComponent,
     ExperienceComponent,
     ProfileComponent,
-    CommentsComponent,
     HelpComponent,
     DatabaseComponent,
     ViewExperienceComponent,

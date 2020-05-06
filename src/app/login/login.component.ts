@@ -17,8 +17,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   hide: boolean;
   loginForm: FormGroup;
   validation_messages = {
-    userID: [{ type: "required", message: "This field is required." }],
-    password: [{ type: "required", message: "This field is required." }],
+    userID: [{ type: "required", message: "Este campo es obligatorio!" }],
+    password: [{ type: "required", message: "Este campo es obligatorio!" }],
   };
   userLogged: User;
   message: string;
@@ -51,16 +51,16 @@ export class LoginComponent implements OnInit, OnDestroy {
     if (exists) {
       this.userLogged = await this.authService.getUserById(value.userID);
       if (this.userLogged.password == value.password) {
-        this.message = "Usuario logueado con éxito!"
+        this.message = "Usuario logueado con éxito!";
         this.showMessage(true);
         this.authService.SignIn(this.userLogged);
       } else {
-        this.message = "Contraseña incorrecta!"
+        this.message = "Contraseña incorrecta!";
         this.showMessage(false);
         this.loginForm.reset();
       }
     } else {
-      this.message = "Usuario no registrado!"
+      this.message = "Usuario no registrado!";
       this.showMessage(false);
       this.loginForm.reset();
     }

@@ -41,7 +41,7 @@ app-review {
 }
 
 .flex-row img {
-    width: 100%;
+  width: 100%;
 }
 
 .description {
@@ -66,6 +66,11 @@ app-review {
   justify-content: space-between;
   margin-right: 2%;
   margin-bottom: 1.5rem;
+}
+
+.btn-container>button {
+  width: 100px;
+  max-width: 100px;
 }
 
 @media(min-width: 768px) {
