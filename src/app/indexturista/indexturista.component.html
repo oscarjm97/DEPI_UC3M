@@ -75,9 +75,8 @@
                         <!--{{exp.reviews.length}} -->
                     </button>
                     <p class="attr bold">
-                        <span matPrefix>€&nbsp;</span>
                         <mat-label>{{exp.price}}</mat-label>
-                        <span matSuffix>.00</span>
+                        <span matSuffix>€</span>
                     </p>
                     <button class="attr view-button" mat-raised-button color="primary"
                         [routerLink]="['/to/view_experience',exp.id]">Ver</button>

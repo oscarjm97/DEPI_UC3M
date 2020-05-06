@@ -5,10 +5,19 @@
   margin: 2%;
 }
 
+.bold {
+  font-weight: 600;
+}
+
 mat-card-title,
 mat-card-header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  margin-left: -0.7rem;
+}
+
+app-review {
+  margin: 2% 2% 2% 0;
 }
 
 .example-header-image {
@@ -31,6 +40,75 @@ mat-card-header {
   padding-right: 2%;
 }
 
-.flex-row  img{
+.flex-row img {
     width: 100%;
+}
+
+.description {
+  margin: 0;
+  text-align: justify;
+}
+
+.experience-attr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-right: 1rem;
+}
+
+.user-publisher {
+  margin-left: -10px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 2%;
+  margin-bottom: 1.5rem;
+}
+
+@media(min-width: 768px) {
+  .flex-row img {
+    height: 80%;
+  }
+}
+
+@media(min-width: 900px) {
+  .flex-row img {
+    height: 95%;
+  }
+}
+
+@media(max-width: 768px) {
+  .main-class {
+    margin-right: 0;
+    margin-left: 1%;
+  }
+
+  .flex-row {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .subtitle {
+    display: flex;
+    justify-content: center;
+  }
+
+  .description {
+    margin-top: 1%;
+  }
+}
+
+@media(max-width: 492px) {
+  .btn {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+  }
+
+  .btn:last-child {
+    margin-inline-start: 5rem;
+  }
 }

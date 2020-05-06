@@ -92,6 +92,7 @@ export class IndexturistaComponent implements OnInit {
 
   ngOnDestroy() {
     this.s_experiences.unsubscribe();
+    this.s_reviews.unsubscribe();
   }
 
   public getExperiences() {
