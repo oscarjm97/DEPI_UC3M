@@ -1,12 +1,12 @@
 <div id="form-filter">
     <mat-form-field>
         <mat-label>Precio Min.</mat-label>
-        <input matInput type="number" min="10" #myInputMin (change)='getMinPriceEvent(myInputMin.value)'>
+        <input matInput type="number" min="0" #myInputMin (change)='getMinPriceEvent(myInputMin.value)'>
         <span matSuffix>€</span>
     </mat-form-field>
     <mat-form-field>
         <mat-label>Precio Máx.</mat-label>
-        <input matInput type="number" min="100" #myInputMax (change)='getMaxPriceEvent(myInputMax.value)'>
+        <input matInput type="number" min="10" #myInputMax (change)='getMaxPriceEvent(myInputMax.value)'>
         <span matSuffix>€</span>
     </mat-form-field>
     <p class="title-type">Tipo de experiencia:</p>

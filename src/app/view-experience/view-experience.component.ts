@@ -66,4 +66,16 @@ export class ViewExperienceComponent implements OnInit, OnDestroy {
   public getReviewInExperience(expID: string) {
     return this.reviews.filter((r) => r.experienceID == expID).length;
   }
+
+  showMessage() {
+    var newSnackbar = document.createElement("div");
+    newSnackbar.classList.add("snackbar");
+    document.querySelector("body").appendChild(newSnackbar);
+
+    newSnackbar.textContent = "Has reservado la experiencia: " + this.exp.name;
+    newSnackbar.classList.add("active");
+    setTimeout(() => {
+      newSnackbar.classList.remove("active");
+    }, 3000);
+  }
 }
