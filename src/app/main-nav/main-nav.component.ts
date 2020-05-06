@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { map, shareReplay } from "rxjs/operators";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { Router } from "@angular/router";
+import { User } from "src/app/model/User";
 
 @Component({
   selector: "app-nav",
@@ -11,6 +12,8 @@ import { Router } from "@angular/router";
   styleUrls: ["./main-nav.component.scss"],
 })
 export class MainNavComponent {
+  user: User;
+  adventur: boolean;
   public minPriceSelect: number;
   public maxPriceSelect: number;
   public filterSelect: string = "";
@@ -26,7 +29,16 @@ export class MainNavComponent {
     private breakpointObserver: BreakpointObserver,
     private authFire: AngularFireAuth,
     private router: Router
-  ) {}
+  ) {
+    this.user = new User();
+  }
+
+  ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem("user"));
+    this.adventur = this.user.rol.toLowerCase().startsWith("aventurero")
+      ? true
+      : false;
+  }
 
   filterCollapse() {
     var filter = document.getElementById("filter-component");

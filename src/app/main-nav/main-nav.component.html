@@ -12,7 +12,7 @@
         <mat-icon aria-label="">portrait</mat-icon>
         Tu Perfil
       </a>
-      <a mat-list-item [routerLink]="'/to/experience'">
+      <a mat-list-item [routerLink]="'/to/experience'" *ngIf="(this.adventur === true)">
         <mat-icon aria-label="">import_contacts</mat-icon>
         Mis Experiencias
       </a>
@@ -47,7 +47,7 @@
       </div>
 
       <div *ngIf="(isHandset$ | async) === false">
-        <a mat-button [routerLink]="'/to/experience'"> Mis Experiencias </a>
+        <a mat-button [routerLink]="'/to/experience'" *ngIf="(this.adventur === true)"> Mis Experiencias </a>
         <button mat-button [matMenuTriggerFor]="user">
           <mat-icon aria-label="">account_circle</mat-icon>
         </button>
