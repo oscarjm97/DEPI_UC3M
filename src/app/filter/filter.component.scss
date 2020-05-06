@@ -11,8 +11,16 @@ mat-accordion {
   box-shadow: none;
 }
 
-form {
-  margin: 1%;
+.form-filter {
+  margin: 1% 2%;
+}
+
+mat-form-field {
+  margin: 1% 1% 0 1%;
+}
+
+.title-type {
+  margin-left: 1%;
 }
 
 .btn-filter>button {

@@ -1,30 +1,28 @@
 <div>
-    <form>
+    <form class="form-filter">
         <mat-form-field>
             <mat-label>Precio Min.</mat-label>
-            <input matInput type="number" min="10" value="10">
-            <span matPrefix>€&nbsp;</span>
-            <span matSuffix>.00</span>
+            <input matInput type="number" min="10">
+            <span matSuffix>€</span>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Precio Máx.</mat-label>
             <input matInput type="number" min="100">
-            <span matPrefix>€&nbsp;</span>
-            <span matSuffix>.00</span>
+            <span matSuffix>€</span>
         </mat-form-field>
-        <p>Tipo de experiencia:</p>
+        <p class="title-type">Tipo de experiencia:</p>
         <div class="btn-filter">
             <button mat-raised-button color="primary" (click)='this.onSelectExperience(typesExperiences.naturaleza)'>
                 <mat-icon aria-label="">eco</mat-icon>
             </button>
+            <button mat-raised-button color="primary" (click)='this.onSelectExperience(typesExperiences.playa)'>
+                <mat-icon aria-label="">pool</mat-icon>
+            </button>
             <button mat-raised-button color="primary" (click)='this.onSelectExperience(typesExperiences.bar)'>
                 <mat-icon aria-label="">local_bar</mat-icon>
             </button>
-            <button mat-raised-button color="primary" (click)='this.onSelectExperience(typesExperiences.gastronomica)'>
+            <button mat-raised-button color="primary" (click)='this.onSelectExperience(typesExperiences.gastronomia)'>
                 <mat-icon aria-label="">restaurant</mat-icon>
-            </button>
-            <button mat-raised-button color="primary" (click)='this.onSelectExperience(typesExperiences.piscina)'>
-                <mat-icon aria-label="">pool</mat-icon>
             </button>
             <button mat-raised-button color="primary" (click)='this.onSelectExperience(typesExperiences.deportes)'>
                 <mat-icon aria-label="">sports_basketball</mat-icon>
