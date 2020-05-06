@@ -25,6 +25,7 @@ export class RegistroComponent implements OnInit, OnDestroy {
     rol: [{ type: "required", message: "Seleccione un tipo de usuario" }],
   };
   userLogged: User;
+  message: string;
 
   constructor(
     private renderer: Renderer2,
@@ -40,6 +41,7 @@ export class RegistroComponent implements OnInit, OnDestroy {
       rol: ["", Validators.required],
     });
     this.userLogged = new User();
+    this.message = "";
   }
 
   ngOnInit() {
@@ -54,23 +56,30 @@ export class RegistroComponent implements OnInit, OnDestroy {
   async onSubmit(value) {
     const exists = await this.authService.checkExistUser(value.userID);
     if (!exists) {
+      this.message = "Usuario creado con éxito!"
       await this.authService.createUser(value).then((res) => {
-        this.showMessage();
+        this.showMessage(true);
       });
       this.userLogged = await this.authService.getUserById(value.userID);
       this.authService.SignIn(this.userLogged);
     } else {
-      console.log("This user already exist.");
+      this.message = "Usuario ya existente!"
+      this.showMessage(false);
       this.signupForm.reset(); // Borrar los input del formulario
     }
   }
 
-  showMessage() {
+  showMessage(green: boolean) {
     var newSnackbar = document.createElement("div");
     newSnackbar.classList.add("snackbar");
     document.querySelector("body").appendChild(newSnackbar);
 
-    newSnackbar.textContent = "Usuario creado!";
+    newSnackbar.textContent = this.message;
+    if (!green) {
+      newSnackbar.style.backgroundColor = "red";
+    } else {
+      newSnackbar.style.backgroundColor = "green";
+    }
     newSnackbar.classList.add("active");
     setTimeout(() => {
       newSnackbar.classList.remove("active");

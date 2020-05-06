@@ -1,7 +1,7 @@
 <div>
     <h1 class="text-style">Publicaciones</h1>
-    <div >
-        <mat-chip-list>
+    <div class="chip-filter">
+        <mat-chip-list *ngIf="this.navbar.filterSelect">
             <mat-chip [removable]="removable" (removed)="remove()">{{this.filter}}
                 <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
             </mat-chip>
@@ -50,7 +50,8 @@
                         <textarea matInput type="textarea" max="500" formControlName="description"></textarea>
                     </mat-form-field>
                     <input class="input-photo" type="file" formControlName="photo">
-                    <button mat-raised-button color='primary' type="submit" id="createExperience">Crear</button>
+                    <button id="createExperience" mat-raised-button color='primary' type="submit"
+                        [disabled]="!experienceForm.valid">Crear</button>
                 </form>
             </div>
         </mat-expansion-panel>
@@ -64,7 +65,9 @@
         <div class="card-content-flex">
             <img src={{exp.photo}} alt="Photo">
             <div>
-                {{exp.description | slice:0:250}}...
+                <div class="description">
+                    {{exp.description | slice:0:250}}...
+                </div>
                 <div class="experience-attr">
                     <p class="attr stars">
                         <mat-icon aria-label="" style="color: yellow;" *ngFor='let number of getRate(exp.rate)'>
@@ -75,9 +78,8 @@
                         <!--{{exp.reviews.length}} -->
                     </button>
                     <p class="attr bold">
-                        <span matPrefix>€&nbsp;</span>
                         <mat-label>{{exp.price}}</mat-label>
-                        <span matSuffix>.00</span>
+                        <span matSuffix>€</span>
                     </p>
                     <button class="attr view-button" mat-raised-button color="primary"
                         [routerLink]="['/to/view_experience',exp.id]">Ver</button>

@@ -1,34 +1,41 @@
-<div>
+<div class="main-class">
     <h1 class="text-style">{{exp.name}}</h1>
-    <button mat-raised-button color="primary" [routerLink]="'/to/index'">Atrás</button>
-    <button mat-raised-button color="accent">Reservar</button>
+    <p class="mat-card-subtitle subtitle">{{exp.province}}</p>
     <div class="flex-row">
         <div>
             <img src="{{exp.photo}}" alt="Photo">
-            <p>{{exp.province}}</p>
         </div>
         <div>
-            <p>
+            <p class="description">
                 {{exp.description}}
-
             </p>
-            <p>
-                <mat-icon aria-label="" style="color: yellow;" *ngFor="let number of getRate(exp.rate)">grade
-                </mat-icon>
-            </p>
-            <p>
-                <span matPrefix>€&nbsp;</span>
-                <mat-label>{{exp.price}}</mat-label>
-                <span matSuffix>.00</span>
-            </p>
+            <div class="experience-attr">
+                <p class="attr stars">
+                    <mat-icon aria-label="" style="color: yellow;" *ngFor="let number of getRate(exp.rate)">grade
+                    </mat-icon>
+                </p>
+                <button class="attr" mat-button>
+                    <mat-icon>visibility</mat-icon> {{getReviewInExperience(exp.id)}} reviews
+                    <!--{{exp.reviews.length}} -->
+                </button>
+                <p class="attr bold">
+                    <mat-label>{{exp.price}}</mat-label>
+                    <span matSuffix>€</span>
+                </p>
+            </div>
         </div>
     </div>
     <mat-card>
         <mat-card-header>
             <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Recomendador por</mat-card-title>
-            <mat-card-subtitle>{{exp.userID}} </mat-card-subtitle>
+            <mat-card-title>Recomendado por</mat-card-title>
+            <mat-card-subtitle class="user-publisher">{{exp.userID}}</mat-card-subtitle>
         </mat-card-header>
     </mat-card>
+
+    <div class="btn-container">
+        <button class="btn" mat-raised-button color="primary" [routerLink]="'/to/index'">Atrás</button>
+        <button class="btn" mat-raised-button color="accent" (click)="showMessage()">Reservar</button>
+    </div>
     <app-review></app-review>
 </div>

@@ -11,10 +11,50 @@ mat-accordion {
   box-shadow: none;
 }
 
+mat-form-field {
+  margin: 1% 1% 0 1%;
+  width: 8rem;
+}
+
+.title-type {
+  margin-left: 1%;
+}
+
 #form-filter {
-  margin: 1%;
+  margin: 1% 2%;
 }
 
 .btn-filter>button {
   margin: .5%;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 100px;
+  background-color: indianred;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 1px 0;
+  margin-top: 2.4rem;
+  margin-left: -2.8rem;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+@media(max-width: 768px) {
+  .tooltip:hover .tooltiptext {
+    visibility: hidden;
+  }
 }

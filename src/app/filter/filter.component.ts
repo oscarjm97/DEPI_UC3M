@@ -2,9 +2,9 @@ import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 
 export enum TypesExperience {
   naturaleza,
+  playa,
   bar,
   gastronomia,
-  playa,
   deportes,
   cultura,
   musica,

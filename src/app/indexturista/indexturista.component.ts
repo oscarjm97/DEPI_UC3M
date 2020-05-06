@@ -25,13 +25,13 @@ interface Types {
 })
 export class IndexturistaComponent implements OnInit {
   types: Types[] = [
-    { value: "naturaleza", viewValue: "Naturaleza" },
-    { value: "bar", viewValue: "Bar" },
-    { value: "gastronomia", viewValue: "Gastronomía" },
-    { value: "playa", viewValue: "Playa" },
-    { value: "deportes", viewValue: "Deportes" },
-    { value: "cultura", viewValue: "Cultura" },
-    { value: "musica", viewValue: "Música" },
+    { value: 'naturaleza', viewValue: 'Naturaleza' },
+    { value: 'playa', viewValue: 'Playa' },
+    { value: 'bar', viewValue: 'Bar' },
+    { value: 'gastronomia', viewValue: 'Gastronomía' },
+    { value: 'deportes', viewValue: 'Deportes' },
+    { value: 'cultura', viewValue: 'Cultura' },
+    { value: 'musica', viewValue: 'Música' }
   ];
 
   experienceForm: FormGroup;
@@ -92,6 +92,7 @@ export class IndexturistaComponent implements OnInit {
 
   ngOnDestroy() {
     this.s_experiences.unsubscribe();
+    this.s_reviews.unsubscribe();
   }
 
   public getExperiences() {
