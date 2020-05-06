@@ -25,7 +25,6 @@ interface Types {
 })
 export class IndexturistaComponent implements OnInit {
   types: Types[] = [
-<<<<<<< HEAD
     { value: 'naturaleza', viewValue: 'Naturaleza' },
     { value: 'playa', viewValue: 'Playa' },
     { value: 'bar', viewValue: 'Bar' },
@@ -33,15 +32,6 @@ export class IndexturistaComponent implements OnInit {
     { value: 'deportes', viewValue: 'Deportes' },
     { value: 'cultura', viewValue: 'Cultura' },
     { value: 'musica', viewValue: 'Música' }
-=======
-    { value: "naturaleza", viewValue: "Naturaleza" },
-    { value: "bar", viewValue: "Bar" },
-    { value: "gastronomia", viewValue: "Gastronomía" },
-    { value: "playa", viewValue: "Playa" },
-    { value: "deportes", viewValue: "Deportes" },
-    { value: "cultura", viewValue: "Cultura" },
-    { value: "musica", viewValue: "Música" },
->>>>>>> 98b81720dca7f37ec811840a98383aa7b3392a59
   ];
 
   experienceForm: FormGroup;
