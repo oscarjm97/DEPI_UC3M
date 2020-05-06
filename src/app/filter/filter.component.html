@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div>
     <form class="form-filter">
         <mat-form-field>
@@ -37,4 +38,43 @@
         <!-- <button mat-raised-button color="accent" (click)='this.onClear()'>Limpiar</button> -->
         <!-- <button mat-raised-button color="primary">Aceptar</button> -->
     </form>
+=======
+<div id="form-filter">
+    <mat-form-field>
+        <mat-label>Precio Min.</mat-label>
+        <input matInput type="number" min="10" #myInputMin (change)='getMinPriceEvent(myInputMin.value)'>
+        <span matPrefix>€&nbsp;</span>
+        <span matSuffix>.00</span>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Precio Máx.</mat-label>
+        <input matInput type="number" min="100" #myInputMax (change)='getMaxPriceEvent(myInputMax.value)'>
+        <span matPrefix>€&nbsp;</span>
+        <span matSuffix>.00</span>
+    </mat-form-field>
+    <p>Tipo de experiencia:</p>
+    <div class="btn-filter">
+        <button mat-raised-button color="primary" (click)='this.onSelectExperience(typesExperiences.naturaleza)'>
+            <mat-icon aria-label="">eco</mat-icon>
+        </button>
+        <button mat-raised-button color="primary" (click)='this.onSelectExperience(typesExperiences.bar)'>
+            <mat-icon aria-label="">local_bar</mat-icon>
+        </button>
+        <button mat-raised-button color="primary" (click)='this.onSelectExperience(typesExperiences.gastronomica)'>
+            <mat-icon aria-label="">restaurant</mat-icon>
+        </button>
+        <button mat-raised-button color="primary" (click)='this.onSelectExperience(typesExperiences.piscina)'>
+            <mat-icon aria-label="">pool</mat-icon>
+        </button>
+        <button mat-raised-button color="primary" (click)='this.onSelectExperience(typesExperiences.deportes)'>
+            <mat-icon aria-label="">sports_basketball</mat-icon>
+        </button>
+        <button mat-raised-button color="primary" (click)='this.onSelectExperience(typesExperiences.cultura)'>
+            <mat-icon aria-label="">palette</mat-icon>
+        </button>
+        <button mat-raised-button color="primary" (click)='this.onSelectExperience(typesExperiences.musica)'>
+            <mat-icon aria-label="">music_note</mat-icon>
+        </button>
+    </div>
+>>>>>>> 98b81720dca7f37ec811840a98383aa7b3392a59
 </div>

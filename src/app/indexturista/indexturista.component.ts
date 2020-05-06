@@ -25,6 +25,7 @@ interface Types {
 })
 export class IndexturistaComponent implements OnInit {
   types: Types[] = [
+<<<<<<< HEAD
     { value: 'naturaleza', viewValue: 'Naturaleza' },
     { value: 'playa', viewValue: 'Playa' },
     { value: 'bar', viewValue: 'Bar' },
@@ -32,6 +33,15 @@ export class IndexturistaComponent implements OnInit {
     { value: 'deportes', viewValue: 'Deportes' },
     { value: 'cultura', viewValue: 'Cultura' },
     { value: 'musica', viewValue: 'Música' }
+=======
+    { value: "naturaleza", viewValue: "Naturaleza" },
+    { value: "bar", viewValue: "Bar" },
+    { value: "gastronomia", viewValue: "Gastronomía" },
+    { value: "playa", viewValue: "Playa" },
+    { value: "deportes", viewValue: "Deportes" },
+    { value: "cultura", viewValue: "Cultura" },
+    { value: "musica", viewValue: "Música" },
+>>>>>>> 98b81720dca7f37ec811840a98383aa7b3392a59
   ];
 
   experienceForm: FormGroup;
@@ -95,45 +105,60 @@ export class IndexturistaComponent implements OnInit {
   }
 
   public getExperiences() {
+    let exps = this.experiences;
     this.filter = this.navbar.filterSelect;
-    if (this.navbar.searchForm != "") {
-      if (this.filter != "") {
-        return this.experiences.filter(
-          (exp) =>
-            (exp.name
-              .toUpperCase()
-              .includes(this.navbar.searchForm.toUpperCase()) ||
-              exp.country
-                .toUpperCase()
-                .includes(this.navbar.searchForm.toUpperCase()) ||
-              exp.province
-                .toUpperCase()
-                .includes(this.navbar.searchForm.toUpperCase())) &&
-            exp.type.toUpperCase().startsWith(this.filter.toUpperCase())
+    if (this.navbar.searchForm != "" && this.navbar.searchForm != null) {
+      exps = this.experiences.filter(
+        (exp) =>
+          exp.name
+            .toUpperCase()
+            .includes(this.navbar.searchForm.toUpperCase()) ||
+          exp.country
+            .toUpperCase()
+            .includes(this.navbar.searchForm.toUpperCase()) ||
+          exp.province
+            .toUpperCase()
+            .includes(this.navbar.searchForm.toUpperCase())
+      );
+    }
+    if (this.filter != "" && this.filter != null) {
+      exps = exps.filter((exp) => {
+        if (
+          exp.type != null &&
+          exp.type.toUpperCase().startsWith(this.filter.toUpperCase())
+        ) {
+          return exp;
+        }
+      });
+    }
+
+    exps = this.restrictByPrice(exps);
+    return exps;
+  }
+
+  public restrictByPrice(exps: Experience[]) {
+    if (this.navbar.minPriceSelect != null && this.navbar.minPriceSelect > 0) {
+      if (
+        this.navbar.maxPriceSelect != null &&
+        this.navbar.maxPriceSelect > 0
+      ) {
+        return exps.filter(
+          (f) =>
+            f.price >= this.navbar.minPriceSelect &&
+            f.price <= this.navbar.maxPriceSelect
         );
       } else {
-        return this.experiences.filter(
-          (exp) =>
-            exp.name
-              .toUpperCase()
-              .includes(this.navbar.searchForm.toUpperCase()) ||
-            exp.country
-              .toUpperCase()
-              .includes(this.navbar.searchForm.toUpperCase()) ||
-            exp.province
-              .toUpperCase()
-              .includes(this.navbar.searchForm.toUpperCase())
-        );
+        return exps.filter((f) => f.price >= this.navbar.minPriceSelect);
       }
     } else {
-      if (this.filter != "") {
-        return this.experiences.filter((exp) =>
-          exp.name.toUpperCase().startsWith(this.filter.toUpperCase())
-        );
-      } else {
-        return this.experiences;
+      if (
+        this.navbar.maxPriceSelect != null &&
+        this.navbar.maxPriceSelect > 0
+      ) {
+        return exps.filter((f) => f.price <= this.navbar.maxPriceSelect);
       }
     }
+    return exps;
   }
 
   public getRate(rate) {
@@ -155,9 +180,11 @@ export class IndexturistaComponent implements OnInit {
 
   async onSubmit(value) {
     if (this.experienceForm.valid) {
-      await this.experienceService.createExperience(value, this.user).then((res) => {
-        this.showMessage();
-      });
+      await this.experienceService
+        .createExperience(value, this.user)
+        .then((res) => {
+          this.showMessage();
+        });
       this.experienceForm.reset();
     }
   }
