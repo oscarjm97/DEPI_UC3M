@@ -7,7 +7,7 @@
   font-weight: bold;
 }
 
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   .center {
     justify-content: center;
   }
@@ -18,7 +18,7 @@ mat-expansion-panel {
 }
 
 mat-card-subtitle {
-    margin: 1px 1px 4px -15px;
+  margin: 1px 1px 4px -15px;
 }
 
 .experience-title {
@@ -32,32 +32,27 @@ mat-card-subtitle {
 }
 
 .reviews {
-<<<<<<< HEAD
   align-items: center;
 }
 
 #card-container {
-  box-shadow: none ! important;
+  box-shadow: none !important;
 }
 
-.mat-expansion-panel:not([class*=mat-elevation-z]) {
-  box-shadow: none ! important;
-  border-color: #242B45;
+.mat-expansion-panel:not([class*="mat-elevation-z"]) {
+  box-shadow: none !important;
+  border-color: #242b45;
   border-style: solid;
   border-width: 0.1rem;
 }
 
 mat-card.list-reviews {
   margin-bottom: 0.5%;
-  border-color: #C49860;
+  border-color: #c49860;
   border-style: solid;
   border-width: 0.06rem;
 }
-=======
-    align-items: center;
-}
 
 .justify {
-    text-align: justify;
+  text-align: justify;
 }
->>>>>>> 53f259dc9c58c0e6516610cfbe8216fd79b4e0b2
