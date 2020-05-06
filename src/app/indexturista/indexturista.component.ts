@@ -48,7 +48,7 @@ export class IndexturistaComponent implements OnInit {
   public arrayRate: number[];
 
   constructor(
-    private navbar: MainNavComponent,
+    public navbar: MainNavComponent,
     private fb: FormBuilder,
     private reviewService: ReviewService,
     private experienceService: ExperienceService
