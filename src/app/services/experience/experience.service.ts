@@ -23,7 +23,7 @@ export class ExperienceService {
   constructor(
     private firestore: AngularFirestore,
     private achievementService: AchievementService,
-    private authService: AuthService
+    private authService: AuthService,
   ) {
     this.afs = this.firestore.collection("experiences");
   }
@@ -57,6 +57,7 @@ export class ExperienceService {
     exp.rate = 0;
     exp.id = id;
     exp.reviews = [];
+
     if (exp.photo == null || exp.photo == "") {
       exp.photo = this.defaultPhoto;
     }

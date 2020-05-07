@@ -49,7 +49,7 @@
                         <mat-label>Descripción</mat-label>
                         <textarea matInput type="textarea" max="500" formControlName="description"></textarea>
                     </mat-form-field>
-                    <input class="input-photo" type="file" formControlName="photo">
+                    <input class="input-photo" type="file" (change)="onFileSelected($event)" formControlName="photo">
                     <button id="createExperience" mat-raised-button color='primary' type="submit"
                         [disabled]="!experienceForm.valid">Crear</button>
                 </form>
