@@ -1,6 +1,7 @@
 export interface IExperience {
   id: string;
   userID: string;
+  userphoto: string;
   name: string;
   description: string;
   price: number;
@@ -14,6 +15,7 @@ export interface IExperience {
 export class Experience implements IExperience {
   id: string;
   userID: string;
+  userphoto: string;
   name: string;
   description: string;
   price: number;

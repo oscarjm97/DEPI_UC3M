@@ -53,6 +53,7 @@ export class ExperienceService {
   public async createExperience(exp: Experience, user: User) {
     const id = this.firestore.createId();
     exp.userID = user.userID;
+    exp.userphoto = user.photo;
     exp.rate = 0;
     exp.id = id;
     exp.reviews = [];

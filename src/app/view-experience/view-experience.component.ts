@@ -22,6 +22,8 @@ export class ViewExperienceComponent implements OnInit, OnDestroy {
   public reviews: Review[];
   public s_reviews: Subscription;
 
+  public user: User;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -31,6 +33,7 @@ export class ViewExperienceComponent implements OnInit, OnDestroy {
     this.exp = new Experience();
     this.reviews = [];
     this.arrayRate = [];
+    this.user = new User();
   }
 
   ngOnInit() {
@@ -43,6 +46,7 @@ export class ViewExperienceComponent implements OnInit, OnDestroy {
     this.s_reviews = this.reviewService.getAll().subscribe((data) => {
       this.reviews = data;
     });
+    this.user = JSON.parse(localStorage.getItem("user"));
   }
 
   ngOnDestroy() {
@@ -65,6 +69,14 @@ export class ViewExperienceComponent implements OnInit, OnDestroy {
 
   public getReviewInExperience(expID: string) {
     return this.reviews.filter((r) => r.experienceID == expID).length;
+  }
+
+  differentUser(): boolean {
+    if (this.user.userID == this.exp.userID) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   showMessage() {
