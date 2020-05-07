@@ -27,7 +27,7 @@
     </div>
     <mat-card>
         <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
+            <img mat-card-avatar class="header-image" src="{{exp.userphoto}}" alt="Avatar">
             <mat-card-title>Recomendado por</mat-card-title>
             <mat-card-subtitle class="user-publisher">{{exp.userID}}</mat-card-subtitle>
         </mat-card-header>
@@ -37,5 +37,5 @@
         <button class="btn" mat-raised-button color="primary" [routerLink]="'/to/index'">Atrás</button>
         <button class="btn" mat-raised-button color="accent" (click)="showMessage()">Reservar</button>
     </div>
-    <app-review></app-review>
+    <app-review *ngIf="differentUser()"></app-review>
 </div>
