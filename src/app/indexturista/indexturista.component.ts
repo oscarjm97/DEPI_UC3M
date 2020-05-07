@@ -190,9 +190,8 @@ export class IndexturistaComponent implements OnInit {
       const filePath = this.selectedFile.name; //path at which image will be stored in the firebase storage
       const snap = await this.afStorage.upload(filePath, this.selectedFile); //upload task
       await this.getUrl(snap);
+      value.photo = this.url;
     }
-
-    value.photo = this.url;
 
     await this.experienceService
       .createExperience(value, this.user)
@@ -200,6 +199,7 @@ export class IndexturistaComponent implements OnInit {
         this.showMessage();
       });
     this.experienceForm.reset();
+    this.url = "";
   }
 
   showMessage() {
