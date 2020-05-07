@@ -12,6 +12,8 @@ import {
   Validators,
   FormControl,
 } from "@angular/forms";
+import { HttpClient } from '@angular/common/http';
+import { AngularFireStorage } from "@angular/fire/storage";
 
 interface Types {
   value: string;
@@ -39,9 +41,11 @@ export class IndexturistaComponent implements OnInit {
   user: User;
   removable = true;
   filter: string = "";
+  selectedFile: File = null;
+  url: string = "";
+
   public experiences: Experience[];
   public s_experiences: Subscription;
-
   public reviews: Review[];
   public s_reviews: Subscription;
 
@@ -51,7 +55,9 @@ export class IndexturistaComponent implements OnInit {
     public navbar: MainNavComponent,
     private fb: FormBuilder,
     private reviewService: ReviewService,
-    private experienceService: ExperienceService
+    private experienceService: ExperienceService,
+    private http: HttpClient,
+    private afStorage: AngularFireStorage
   ) {
     this.experiences = [];
     this.reviews = [];
@@ -169,15 +175,31 @@ export class IndexturistaComponent implements OnInit {
     return this.reviews.filter((r) => r.experienceID == expID).length;
   }
 
+  onFileSelected(event) {
+    this.selectedFile = <File>event.target.files[0];
+  }
+
+  //method to retrieve download url
+  private async getUrl(snap: firebase.storage.UploadTaskSnapshot) {
+    const url = await snap.ref.getDownloadURL();
+    this.url = url;  //store the URL
+  }
+
   async onSubmit(value) {
-    if (this.experienceForm.valid) {
-      await this.experienceService
-        .createExperience(value, this.user)
-        .then((res) => {
-          this.showMessage();
-        });
-      this.experienceForm.reset();
+    if (value.photo != null && value.photo != "") {
+      const filePath = this.selectedFile.name; //path at which image will be stored in the firebase storage
+      const snap = await this.afStorage.upload(filePath, this.selectedFile); //upload task
+      await this.getUrl(snap);
     }
+
+    value.photo = this.url;
+
+    await this.experienceService
+      .createExperience(value, this.user)
+      .then((res) => {
+        this.showMessage();
+      });
+    this.experienceForm.reset();
   }
 
   showMessage() {

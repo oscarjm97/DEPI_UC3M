@@ -37,6 +37,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFireStorageModule } from "@angular/fire/storage";
+import { HttpClientModule } from "@angular/common/http";
 
 import { ViewExperienceComponent } from "./view-experience/view-experience.component";
 import { ReviewComponent } from "./review/review.component";
@@ -81,6 +83,8 @@ import { ReviewComponent } from "./review/review.component";
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    AngularFireStorageModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
